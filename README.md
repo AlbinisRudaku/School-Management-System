@@ -15,6 +15,6 @@ JavaFX - SDK Runtime library
         2.4 Windows -> `--module-path "\path\to\javafx-sdk-15.0.1\lib" --add-modules javafx.controls,javafx.fxml`
 
 
-For more detailed information on installin JavaFX in IntelliJ and other IDE-s visit:   https://openjfx.io/openjfx-docs/
+For more detailed information on installing JavaFX in IntelliJ and other IDE-s visit:   https://openjfx.io/openjfx-docs/
 
 
