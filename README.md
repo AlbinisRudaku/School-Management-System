@@ -5,7 +5,7 @@ JavaFX - SDK Runtime library
 
 **IntelliJ Idea JavaFX integration:**
 
-1. Import JavaFX SDK
+1. Import JavaFX SDK --> https://gluonhq.com/products/javafx/
     1.1 Just import the lib folder in the SDK
    
 2. Set up the VM (depends on the Operating System that you use)
