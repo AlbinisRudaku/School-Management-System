@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" stylesheets="@../../stylesheet/app.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.controllers.dialogs.Add_parentController">
+   <children>
+      <HBox alignment="CENTER_RIGHT">
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
+         <children>
+            <ImageView fitHeight="22.0" fitWidth="22.0" onMouseClicked="#close" pickOnBounds="true" preserveRatio="true" styleClass="hover-hand">
+               <image>
+                  <Image url="@../../assets/images/close.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" VBox.vgrow="NEVER">
+         <children>
+            <ImageView fitHeight="71.0" fitWidth="161.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../assets/images/family.png" />
+               </image>
+            </ImageView>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="fn-18" text="Add parent" wrappingWidth="305.0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin></Text>
+         </children>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </HBox>
+      <VBox alignment="CENTER_LEFT">
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox alignment="CENTER_LEFT">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First name:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last name:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="City:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="85.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Contact:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Job status:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone number:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="145.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Degree:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="225.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Job type:" wrappingWidth="100.0" />
+                        <TextField />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="5.0" right="5.0" top="5.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_RIGHT" VBox.vgrow="NEVER">
+         <children>
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="90.0" text="Add">
+               <VBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </VBox.margin>
+               <styleClass>
+                  <String fx:value="fn-14" />
+                  <String fx:value="back-green" />
+                  <String fx:value="fill-white" />
+                  <String fx:value="back-transparent" />
+                  <String fx:value="flat" />
+                  <String fx:value="hover-hand" />
+                  <String fx:value="hover-dark-green" />
+               </styleClass>
+            </Button>
+         </children>
+         <effect>
+            <InnerShadow />
+         </effect>
+      </VBox>
+   </children>
+</VBox>

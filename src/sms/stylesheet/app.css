@@ -1,0 +1,177 @@
+
+
+/* Font Sizes */
+
+.fn-14 {
+    -fx-font-size: 14px;
+}
+
+.fn-16 {
+    -fx-font-size: 16px;
+}
+
+.fn-18 {
+    -fx-font-size: 18px;
+}
+
+.fn-24 {
+    -fx-font-size: 24px;
+}
+
+.fn-32 {
+    -fx-font-size: 32px;
+}
+
+.fn-48 {
+    -fx-font-size: 48px;
+}
+
+.fn-64 {
+    -fx-font-size: 64px;
+}
+
+/* Font Weights */
+
+.fn-weight-bold {
+    -fx-font-weight: bold;
+}
+
+.fn-weight-light {
+    -fx-font-weight: 400;
+}
+
+
+/* Text Alignments */
+
+.txt-center {
+    -fx-text-alignment: center;
+}
+
+.txt-justify {
+    -fx-text-alignment: justify;
+}
+
+.txt-left {
+    -fx-text-alignment: left;
+}
+
+.txt-right {
+    -fx-text-alignment: right;
+}
+
+
+/* Text Colors */
+
+.fill-light-grey {
+    -fx-fill: #ececec;
+    -fx-text-fill: #ececec;
+}
+
+.fill-grey {
+    -fx-fill: #9c9c9c;
+    -fx-text-fill: #9c9c9c;
+}
+
+.fill-dark {
+    -fx-fill: #4f5d55;
+    -fx-text-fill: #4f5d55;
+}
+
+.fill-white {
+    -fx-fill: #ffffff;
+    -fx-text-fill: #ffffff;
+}
+
+.fill-red {
+    -fx-fill: #e86829;
+    -fx-text-fill: #e86829;
+}
+
+.fill-green {
+    -fx-fill: #8bc34a;
+    -fx-text-fill: #8bc34a;
+}
+
+
+/* Background Colors */
+
+.back-white {
+    -fx-background-color: #ffffff;
+}
+
+.back-transparent {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+}
+
+.back-light-grey {
+    -fx-background-color: #ececec;
+}
+
+.back-green {
+    -fx-background-color: #8bc34a;
+}
+
+
+/* Shapes */
+
+.flat {
+    -fx-background-radius: 0px;
+}
+
+
+/* Borders */
+
+.border-2 {
+    -fx-border-width: 2px;
+}
+
+.border-light-grey {
+    -fx-border-color: #ececec;
+}
+
+/* Border Radius */
+
+.border-radius-10 {
+    -fx-border-radius: 10px;
+}
+
+.border-radius-20 {
+    -fx-border-radius: 20px;
+}
+
+.border-radius-30 {
+    -fx-border-radius: 30px;
+}
+
+.border-radius-40 {
+    -fx-border-radius: 40px;
+}
+
+.border-radius-50 {
+    -fx-border-radius: 50px;
+}
+
+.border-radius-10 {
+    -fx-border-radius: 10px;
+}
+
+
+/* Hovers */
+
+.hover-hand:hover {
+    -fx-cursor: hand;
+}
+
+.hover-dark-grey:hover {
+    -fx-background-color: #d2d2d2;
+}
+
+.hover-dark-green:hover {
+    -fx-background-color: #07661A;
+}
+
+.hover-dark-red:hover {
+    -fx-background-color: #901014;
+}
+
