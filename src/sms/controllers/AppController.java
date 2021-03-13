@@ -43,8 +43,8 @@ public class AppController implements Initializable {
     }
 
     @FXML
-    public void show_subjects(javafx.scene.input.MouseEvent event) throws IOException {
-        DynamicViews.loadBorderCenter(border_pane, "subjects");
+    public void show_classes(javafx.scene.input.MouseEvent event) throws IOException {
+        DynamicViews.loadBorderCenter(border_pane, "classes");
     }
 
     @FXML
