@@ -166,16 +166,16 @@
                               <String fx:value="hover-dark-grey" />
                            </styleClass>
                         </VBox>
-                        <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="205.0" onMouseClicked="#show_subjects" prefHeight="200.0" prefWidth="233.0">
+                        <VBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="205.0" onMouseClicked="#show_classes" prefHeight="200.0" prefWidth="233.0">
                            <children>
-                              <Button mnemonicParsing="false" onMouseClicked="#show_subjects" text="Subjects">
+                              <Button mnemonicParsing="false" onMouseClicked="#show_classes" text="Classes">
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </VBox.margin>
                                  <graphic>
                                     <ImageView fitHeight="54.0" fitWidth="69.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@../assets/images/subjects.png" />
+                                          <Image url="@../assets/images/classroom.png" />
                                        </image>
                                     </ImageView>
                                  </graphic>
