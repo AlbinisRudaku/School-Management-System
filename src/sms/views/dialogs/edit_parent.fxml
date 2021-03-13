@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" stylesheets="@../../stylesheet/app.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.controllers.dialogs.Add_parentController">
+<VBox alignment="TOP_CENTER" stylesheets="@../../stylesheet/app.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.controllers.dialogs.Edit_parentController">
    <children>
       <HBox alignment="CENTER_RIGHT">
          <padding>
