@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.ManageStaffsController">
+    <children>
+        <Label layoutX="28.0" layoutY="194.0" prefHeight="23.0" prefWidth="138.0" text="Teacher ID :" />
+        <TextField fx:id="empNoField" layoutX="166.0" layoutY="193.0" prefHeight="25.0" prefWidth="242.0" promptText="Teacher ID *" />
+        <Label layoutX="28.0" layoutY="239.0" prefHeight="23.0" prefWidth="138.0" text="Teacher's Name :" />
+        <TextField fx:id="teacherNameField" layoutX="166.0" layoutY="238.0" prefHeight="25.0" prefWidth="242.0" promptText="Teacher's Name *" />
+        <Label layoutX="28.0" layoutY="284.0" prefHeight="23.0" prefWidth="138.0" text="Date of Birth :" />
+        <TextField fx:id="dobField" layoutX="166.0" layoutY="283.0" prefHeight="25.0" prefWidth="242.0" promptText="YYYY-MM-DD *" />
+        <Label layoutX="28.0" layoutY="327.0" prefHeight="23.0" prefWidth="138.0" text="Date of 1st Appoinment : " />
+        <TextField fx:id="doaField" layoutX="166.0" layoutY="326.0" prefHeight="25.0" prefWidth="242.0" promptText="YYYY-MM-DD *" />
+        <Label layoutX="28.0" layoutY="372.0" prefHeight="23.0" prefWidth="138.0" text="Gender : " />
+        <Label layoutX="28.0" layoutY="415.0" prefHeight="23.0" prefWidth="138.0" text="Contact Number :" />
+        <TextField fx:id="phoneField" layoutX="166.0" layoutY="414.0" prefHeight="25.0" prefWidth="242.0" promptText="Contact Number *" />
+        <Label layoutX="28.0" layoutY="459.0" prefHeight="23.0" prefWidth="138.0" text="Address :" />
+        <TextField fx:id="addressField" layoutX="166.0" layoutY="458.0" prefHeight="25.0" prefWidth="242.0" promptText="Address" />
+        <Label layoutX="28.0" layoutY="505.0" prefHeight="23.0" prefWidth="138.0" text="Email :" />
+        <TextField fx:id="emailField" layoutX="166.0" layoutY="504.0" prefHeight="25.0" prefWidth="242.0" promptText="Email" />
+        <Label layoutX="28.0" layoutY="550.0" prefHeight="23.0" prefWidth="138.0" text="Year :" />
+        <TextField fx:id="prsntGradeField" layoutX="166.0" layoutY="549.0" prefHeight="25.0" prefWidth="242.0" promptText="Present Grade" />
+        <JFXButton fx:id="deleteStaff" layoutX="37.0" layoutY="113.0" onAction="#deleteStaff" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="DELETE" textFill="WHITE">
+            <font>
+                <Font size="25.0" />
+            </font>
+            <stylesheets>
+                <URL value="@css/RegStudent.css" />
+            </stylesheets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+        <JFXButton fx:id="update" layoutX="241.0" layoutY="113.0" onAction="#update" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="UPDATE" textFill="WHITE">
+            <font>
+                <Font size="25.0" />
+            </font>
+            <stylesheets>
+                <URL value="@css/RegStudent.css" />
+            </stylesheets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+        </JFXButton>
+        <Pane prefHeight="94.0" prefWidth="900.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css">
+            <children>
+                <Text fill="WHITE" layoutX="210.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Teacher Management">
+                    <font>
+                        <Font name="BebasNeue" size="50.0" />
+                    </font>
+                </Text>
+            </children>
+         <effect>
+            <DropShadow />
+         </effect>
+        </Pane>
+      <TextField fx:id="genderField" layoutX="166.0" layoutY="371.0" prefHeight="25.0" prefWidth="242.0" promptText="Gender" />
+      <TextField fx:id="EmpNo" layoutX="544.0" layoutY="265.0" prefHeight="37.0" prefWidth="153.0" promptText="Enter Teacher's ID" />
+      <JFXButton id="btnSearch" fx:id="searchStaff" buttonType="RAISED" layoutX="718.0" layoutY="265.0" onAction="#searchStaff" prefHeight="37.0" prefWidth="78.0" style="-fx-background-color: #B32C2C;" stylesheets="@css/RegStudent.css" text="SEARCH">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <TextField fx:id="empName" layoutX="544.0" layoutY="354.0" prefHeight="37.0" prefWidth="168.0" promptText="Search by Name" />
+      <JFXButton id="btnSearch" fx:id="searchByName" buttonType="RAISED" layoutX="719.0" layoutY="354.0" onAction="#searchByName" prefHeight="37.0" prefWidth="78.0" style="-fx-background-color: #B32C2C;" stylesheets="@css/RegStudent.css" text="SEARCH">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXButton>
+      <JFXButton fx:id="printStaff" layoutX="450.0" layoutY="113.0" onAction="#printStaff" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="PRINT" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+         <stylesheets>
+            <URL value="@css/RegStudent.css" />
+         </stylesheets>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton id="button" fx:id="Back" layoutX="19.0" layoutY="11.0" onAction="#Back" text=" ">
+         <graphic>
+            <ImageView fitHeight="64.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1976D2;">
+               <image>
+                  <Image url="@../../other/img/Back.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+    </children>
+</AnchorPane>

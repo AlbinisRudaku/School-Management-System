@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="root" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.MainDashboardController">
+
+    <children>
+      <ImageView fx:id="StaffMgmt" fitHeight="194.0" fitWidth="194.0" layoutX="646.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../other/img/professor.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="SchoolInfo" fitHeight="194.0" fitWidth="208.0" layoutX="353.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../other/img/university.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="StudentMgmt" fitHeight="194.0" fitWidth="222.0" layoutX="62.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../other/img/student.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnSchoolInfo" buttonType="RAISED" layoutX="375.0" layoutY="450.0" onAction="#setBtnSchoolInfo" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css" text="School Information" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnStudentMgmt" buttonType="RAISED" layoutX="84.0" layoutY="450.0" onAction="#setBtnStudentMgmt" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css" text="Student Management" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <JFXButton fx:id="btnStaffMgmt" buttonType="RAISED" layoutX="668.0" layoutY="450.0" onAction="#btnStaffMgmt" prefHeight="38.0" prefWidth="150.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css" text="Staff Management" textFill="WHITE">
+         <font>
+            <Font name="Calibri Bold" size="14.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+        <Pane prefHeight="94.0" prefWidth="900.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css">
+            <children>
+                <Text fill="WHITE" layoutX="105.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AY School Management System">
+                    <font>
+                        <Font name="BebasNeue" size="50.0" />
+                    </font>
+                </Text>
+            <JFXButton fx:id="btnUserSettings" layoutX="20.0" layoutY="22.0" onAction="#setBtnUserSettings" prefHeight="40.0" prefWidth="40.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css" text=" " textFill="WHITE">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="38.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true" style="-fx-cursor: pointer;">
+                     <image>
+                        <Image url="@../../other/img/Menu_50px.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
+            </children>
+        </Pane>
+    </children>
+
+</AnchorPane>
