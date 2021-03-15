@@ -15,7 +15,7 @@ public class StartProject extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/sms/view/fxml/login.fxml"));
         primaryStage.setTitle("School Management System");
         primaryStage.setScene(new Scene(root));
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/sms/other/img/HikmaLogo.jpg")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/sms/other/img/up-logo.png")));
         primaryStage.show();
     }
 
