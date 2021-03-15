@@ -75,7 +75,7 @@
             <DropShadow />
          </effect>
         </Pane>
-      <JFXButton id="button" fx:id="Back" layoutX="26.0" layoutY="11.0" onAction="#Back" text=" ">
+      <JFXButton id="button" fx:id="Back" layoutX="26.0" layoutY="11.0" onAction="#Back" style="-fx-background-color: #8D1D1D;" text=" ">
          <graphic>
             <ImageView fitHeight="64.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1976D2;">
                <image>

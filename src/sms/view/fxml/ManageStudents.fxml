@@ -83,7 +83,7 @@
       <TextField fx:id="gradeField" layoutX="178.0" layoutY="359.0" prefHeight="25.0" prefWidth="242.0" promptText="Year" />
       <TextField fx:id="genderField" layoutX="178.0" layoutY="312.0" prefHeight="25.0" prefWidth="242.0" promptText="Gender" />
       <Pane layoutX="456.0" layoutY="118.0" prefHeight="35.0" prefWidth="3.0" style="-fx-background-color: #1976D2;" visible="false" />
-      <JFXButton id="button" fx:id="Back" layoutX="25.0" layoutY="11.0" onAction="#Back" text=" ">
+      <JFXButton id="button" fx:id="Back" layoutX="25.0" layoutY="11.0" onAction="#Back" style="-fx-background-color: #8D1D1D;" text=" ">
          <graphic>
             <ImageView fitHeight="64.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true" style="-fx-background-color: #1976D2;">
                <image>
