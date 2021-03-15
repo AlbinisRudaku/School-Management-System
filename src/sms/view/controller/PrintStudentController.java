@@ -8,26 +8,18 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import net.sf.jasperreports.engine.JRException;
-import net.sf.jasperreports.engine.JasperFillManager;
-import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.design.JRDesignQuery;
 import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.engine.xml.JRXmlLoader;
-import sms.main.StartProject;
-import sms.tableModel.StudentTableModel;
 import sms.db.DBConnection;
 import sms.dbController.GradeController;
+import sms.tableModel.StudentTableModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -36,8 +28,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 public class PrintStudentController implements Initializable {
@@ -295,8 +285,8 @@ public class PrintStudentController implements Initializable {
             Connection conn = DBConnection.getDBConnection().getConnection();
             InputStream report1 = getClass().getResourceAsStream("/sms/Reports/StudentList.jrxml");
             InputStream report2 = getClass().getResourceAsStream("/sms/Reports/StudentListGender.jrxml");
-            InputStream report3 = getClass().getResourceAsStream("/sms/Reports/PastStudentList.jrxml");
-            InputStream report4 = getClass().getResourceAsStream("/sms/Reports/PastStudentListGender.jrxml");
+//            InputStream report3 = getClass().getResourceAsStream("/sms/Reports/PastStudentList.jrxml");
+//            InputStream report4 = getClass().getResourceAsStream("/sms/Reports/PastStudentListGender.jrxml");
 
            /* JasperDesign jd = JRXmlLoader.load("src\\sms\\Reports\\StudentList.jrxml");
             JasperDesign jd2 = JRXmlLoader.load("src\\sms\\Reports\\StudentListGender.jrxml");
@@ -326,31 +316,28 @@ public class PrintStudentController implements Initializable {
                     }
                 }
             }
-            if (loadYears.getValue() != null) {
+//            if (loadYears.getValue() != null) {
+//
+////                if (gender == "All") {
+////
+////                    JasperDesign jd3 = JRXmlLoader.load(report3);
+////                    query.setText("select * from paststudents where year = '" + year + "'");
+////                    jd3.setQuery(query);
+////                    ReportViewController r = new ReportViewController();
+////                    r.viewReport(jd3);
+////
+////                }
+////                else {
+////
+////                    JasperDesign jd4 = JRXmlLoader.load(report4);
+////                    query.setText("select * from paststudents where year = '" + year + "' AND gender = '" + gender + "'");
+////                    jd4.setQuery(query);
+////                    ReportViewController r = new ReportViewController();
+////                    r.viewReport(jd4);
+////                }
+//            }
 
-                if (gender == "All") {
-
-                    JasperDesign jd3 = JRXmlLoader.load(report3);
-                    query.setText("select * from paststudents where year = '" + year + "'");
-                    jd3.setQuery(query);
-                    ReportViewController r = new ReportViewController();
-                    r.viewReport(jd3);
-
-                } else {
-
-                    JasperDesign jd4 = JRXmlLoader.load(report4);
-                    query.setText("select * from paststudents where year = '" + year + "' AND gender = '" + gender + "'");
-                    jd4.setQuery(query);
-                    ReportViewController r = new ReportViewController();
-                    r.viewReport(jd4);
-                }
-            }
-
-        }catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (JRException e) {
+        }catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
 

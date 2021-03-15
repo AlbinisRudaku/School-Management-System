@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="StudentList" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" whenResourceMissingType="Key" uuid="bf2a438f-df2a-401b-b6c5-7a25f91bbe86">
 	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
 	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="SMS"/>
@@ -68,11 +68,11 @@ FROM students where grade = $P{grade}]]>
 	<title>
 		<band height="60" splitType="Stretch">
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" x="190" y="-7" width="490" height="30" uuid="988fa170-954b-46ce-b9fc-9f6be68b6cd9"/>
+				<reportElement positionType="FixRelativeToBottom" x="269" y="-9" width="370" height="30" uuid="988fa170-954b-46ce-b9fc-9f6be68b6cd9"/>
 				<textElement>
 					<font size="18"/>
 				</textElement>
-				<text><![CDATA[AL-HIKMA JUNIOR SCHOOL, MARUTHAMUNAI]]></text>
+				<text><![CDATA[UNIVERSITY OF PRISHTINA]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="331" y="21" width="100" height="30" uuid="a4522cbc-0d41-4880-8907-17c06a0c5d5d"/>
@@ -89,12 +89,6 @@ FROM students where grade = $P{grade}]]>
 				<reportElement x="85" y="-17" width="75" height="76" uuid="b9c9e6ef-4552-4be2-ad7e-0c2346bb952d"/>
 				<imageExpression><![CDATA[$P{Logo}]]></imageExpression>
 			</image>
-			<textField>
-				<reportElement x="438" y="24" width="58" height="20" uuid="9080058f-a5b6-45b2-ba2e-dbd3656d2caa">
-					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="117aef56-6d14-4869-b544-2b6891cb127f"/>
-				</reportElement>
-				<textFieldExpression><![CDATA[$F{grade}]]></textFieldExpression>
-			</textField>
 		</band>
 	</title>
 	<columnHeader>
@@ -109,7 +103,7 @@ FROM students where grade = $P{grade}]]>
 				<reportElement x="0" y="0" width="50" height="30" uuid="7c2ea022-2999-44b4-be11-93f140083c7e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="29f065ed-1a57-4ce0-9e26-83f77bcc0c74"/>
 				</reportElement>
-				<text><![CDATA[Ad.No]]></text>
+				<text><![CDATA[Student ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="50" y="0" width="160" height="30" uuid="e2ea1135-2c5e-4d28-9318-d11ee9294988">
@@ -145,7 +139,7 @@ FROM students where grade = $P{grade}]]>
 				<reportElement x="430" y="0" width="49" height="30" uuid="79898597-5d2c-4889-a894-c61fc96f1050">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="117aef56-6d14-4869-b544-2b6891cb127f"/>
 				</reportElement>
-				<text><![CDATA[Grade]]></text>
+				<text><![CDATA[Year]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="483" y="0" width="114" height="30" uuid="df15353b-653e-4529-a987-43be33427e17">

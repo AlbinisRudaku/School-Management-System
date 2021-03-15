@@ -29,22 +29,17 @@
             <DropShadow />
          </effect>
         </Pane>
-        <ComboBox fx:id="loadGrades" layoutX="122.0" layoutY="110.0" onAction="#loadGrades" prefHeight="25.0" prefWidth="109.0" promptText="Select Grade" />
-      <Label layoutX="40.0" layoutY="111.0" prefHeight="23.0" prefWidth="138.0" text="Select Grade : " />
-      <ComboBox fx:id="loadYears" layoutX="324.0" layoutY="110.0" onAction="#loadYears" prefHeight="25.0" prefWidth="109.0" promptText="Select Year" />
-      <Label layoutX="251.0" layoutY="111.0" prefHeight="23.0" prefWidth="70.0" text="Past Grade : " />
-      <ComboBox fx:id="loadGender" layoutX="502.0" layoutY="110.0" onAction="#loadGender" prefHeight="25.0" prefWidth="83.0" promptText="Select" />
-      <Label layoutX="447.0" layoutY="112.0" prefHeight="23.0" prefWidth="54.0" text="Gender : " />
-      <JFXCheckBox fx:id="adNoCheckBox" layoutX="39.0" layoutY="161.0" selected="true" text="Ad No" />
-      <JFXCheckBox fx:id="fullNameCheckBox" layoutX="115.0" layoutY="161.0" selected="true" text="Full Name" />
-      <JFXCheckBox fx:id="nameCheckBox" layoutX="211.0" layoutY="161.0" selected="true" text="Name" />
-      <JFXCheckBox fx:id="dobCheckBox" layoutX="285.0" layoutY="161.0" selected="true" text="DOB" />
-      <JFXCheckBox fx:id="doaCheckBox" layoutX="352.0" layoutY="161.0" selected="true" text="DOA" />
-      <JFXCheckBox fx:id="genderCheckBox" layoutX="422.0" layoutY="161.0" selected="true" text="Gender" />
-      <JFXCheckBox fx:id="parentCheckBox" layoutX="503.0" layoutY="161.0" selected="true" text="Parent's Name" />
-      <JFXCheckBox fx:id="nicCheckBox" layoutX="626.0" layoutY="161.0" selected="true" text="NIC" />
-      <JFXCheckBox fx:id="contactCheckBox" layoutX="690.0" layoutY="161.0" selected="true" text="Contact No" />
-      <JFXCheckBox fx:id="addressCheckBox" layoutX="796.0" layoutY="161.0" selected="true" text="Address" />
+        <ComboBox fx:id="loadGrades" layoutX="122.0" layoutY="110.0" onAction="#loadGrades" prefHeight="25.0" prefWidth="109.0" promptText="Select Year" />
+      <Label layoutX="40.0" layoutY="111.0" prefHeight="23.0" prefWidth="138.0" text="Select Year : " />
+      <ComboBox fx:id="loadGender" layoutX="316.0" layoutY="110.0" onAction="#loadGender" prefHeight="25.0" prefWidth="83.0" promptText="Select" />
+      <Label layoutX="261.0" layoutY="112.0" prefHeight="23.0" prefWidth="54.0" text="Gender : " />
+      <JFXCheckBox fx:id="adNoCheckBox" layoutX="39.0" layoutY="161.0" selected="true" text="ID" />
+      <JFXCheckBox fx:id="fullNameCheckBox" layoutX="85.0" layoutY="161.0" selected="true" text="Full Name" />
+      <JFXCheckBox fx:id="dobCheckBox" layoutX="211.0" layoutY="161.0" selected="true" text="Date of birth" />
+      <JFXCheckBox fx:id="doaCheckBox" layoutX="330.0" layoutY="161.0" selected="true" text="Date of admission" />
+      <JFXCheckBox fx:id="genderCheckBox" layoutX="463.0" layoutY="161.0" selected="true" text="Gender" />
+      <JFXCheckBox fx:id="contactCheckBox" layoutX="633.0" layoutY="161.0" selected="true" text="Contact No" />
+      <JFXCheckBox fx:id="addressCheckBox" layoutX="776.0" layoutY="161.0" selected="true" text="Address" />
         <JFXButton fx:id="generate" layoutX="629.0" layoutY="98.0" onAction="#generate" prefHeight="0.0" prefWidth="109.0" style="-fx-background-color: #c62828;" text="Generate" textFill="WHITE">
             <font>
                 <Font size="20.0" />
@@ -64,17 +59,14 @@
       <Pane layoutX="37.0" layoutY="188.0" prefHeight="400.0" prefWidth="832.0" style="-fx-background-color: #1976D2;" stylesheets="@css/RegStudent.css" />
       <TableView fx:id="studentTable" layoutX="40.0" layoutY="191.0" prefHeight="394.0" prefWidth="826.0">
         <columns>
-          <TableColumn fx:id="adNoColumn" prefWidth="43.666664123535156" text="Ad No" />
-            <TableColumn fx:id="fullNameColumn" prefWidth="131.33333587646484" text="Full Name" />
-          <TableColumn fx:id="nameColumn" prefWidth="89.33332824707031" text="Name" />
-            <TableColumn fx:id="dobColumn" prefWidth="66.0" text="DOB" />
-            <TableColumn fx:id="doaColumn" prefWidth="66.0" text="DOA" />
-            <TableColumn fx:id="genderColumn" prefWidth="41.33331298828125" text="Gender" />
-            <TableColumn fx:id="gradeColumn" prefWidth="81.66668701171875" text="Grade" />
-            <TableColumn fx:id="parentNameColumn" prefWidth="85.66665649414062" text="Parent's Name" />
-            <TableColumn fx:id="nicColumn" prefWidth="54.0" text="Parent's NIC" />
-            <TableColumn fx:id="contactNoColumn" prefWidth="81.0" text="Contact No" />
-            <TableColumn fx:id="addressColumn" prefWidth="84.0" text="Address" />
+          <TableColumn fx:id="adNoColumn" prefWidth="43.666664123535156" text="ID" />
+            <TableColumn fx:id="fullNameColumn" prefWidth="126.0" text="Full Name" />
+            <TableColumn fx:id="dobColumn" prefWidth="119.0" text="Date of birth" />
+            <TableColumn fx:id="doaColumn" prefWidth="134.0" text="Date of admission" />
+            <TableColumn fx:id="genderColumn" minWidth="0.0" prefWidth="89.0" text="Gender" />
+            <TableColumn fx:id="gradeColumn" minWidth="0.0" text="Grade" />
+            <TableColumn fx:id="contactNoColumn" prefWidth="143.0" text="Contact No" />
+            <TableColumn fx:id="addressColumn" prefWidth="90.0" text="Address" />
         </columns>
       </TableView>
       <JFXButton id="button" fx:id="Back" layoutX="24.0" layoutY="6.0" onAction="#Back" style="-fx-background-color: #8D1D1D;" text=" ">
