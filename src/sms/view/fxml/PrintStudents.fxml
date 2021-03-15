@@ -2,10 +2,12 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -13,16 +15,19 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.PrintStudentController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.PrintStudentController">
     <children>
-        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-background-color: #1976D2;" stylesheets="@css/RegStudent.css">
+        <Pane prefHeight="85.0" prefWidth="900.0" style="-fx-background-color: #8D1D1D;" stylesheets="@css/RegStudent.css">
             <children>
-                <Text fill="WHITE" fontSmoothingType="LCD" layoutX="297.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRINT STUDENTS LIST" textAlignment="CENTER">
+                <Text fill="WHITE" fontSmoothingType="LCD" layoutX="205.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRINT STUDENTS LIST" textAlignment="CENTER">
                     <font>
                         <Font name="BebasNeue" size="50.0" />
                     </font>
                 </Text>
             </children>
+         <effect>
+            <DropShadow />
+         </effect>
         </Pane>
         <ComboBox fx:id="loadGrades" layoutX="122.0" layoutY="110.0" onAction="#loadGrades" prefHeight="25.0" prefWidth="109.0" promptText="Select Grade" />
       <Label layoutX="40.0" layoutY="111.0" prefHeight="23.0" prefWidth="138.0" text="Select Grade : " />
@@ -40,15 +45,21 @@
       <JFXCheckBox fx:id="nicCheckBox" layoutX="626.0" layoutY="161.0" selected="true" text="NIC" />
       <JFXCheckBox fx:id="contactCheckBox" layoutX="690.0" layoutY="161.0" selected="true" text="Contact No" />
       <JFXCheckBox fx:id="addressCheckBox" layoutX="796.0" layoutY="161.0" selected="true" text="Address" />
-        <JFXButton fx:id="generate" layoutX="629.0" layoutY="98.0" onAction="#generate" prefHeight="0.0" prefWidth="109.0" style="-fx-background-color: #1976D2;" text="Generate" textFill="WHITE">
+        <JFXButton fx:id="generate" layoutX="629.0" layoutY="98.0" onAction="#generate" prefHeight="0.0" prefWidth="109.0" style="-fx-background-color: #c62828;" text="Generate" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </JFXButton>
         <JFXButton fx:id="printStudents" layoutX="757.0" layoutY="98.0" onAction="#printStudents" prefHeight="44.0" prefWidth="110.0" style="-fx-background-color: #c62828;" text="Print" textFill="WHITE">
             <font>
                 <Font size="20.0" />
             </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
         </JFXButton>
       <Pane layoutX="37.0" layoutY="188.0" prefHeight="400.0" prefWidth="832.0" style="-fx-background-color: #1976D2;" stylesheets="@css/RegStudent.css" />
       <TableView fx:id="studentTable" layoutX="40.0" layoutY="191.0" prefHeight="394.0" prefWidth="826.0">
@@ -74,6 +85,9 @@
                </image>
             </ImageView>
          </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
     </children>
 </AnchorPane>

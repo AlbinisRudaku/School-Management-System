@@ -198,6 +198,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`username`, `password`) VALUES
 ('admin', 'admin123'),
 ('teacher', 'teacher123');
+('albinisi', 'admin');
+('yllka', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
