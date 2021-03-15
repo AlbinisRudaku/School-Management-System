@@ -297,7 +297,7 @@
                         <String fx:value="txt-center" />
                      </styleClass>
                   </Text>
-                  <TextField promptText="search">
+                  <TextField fx:id="searchTeacher" promptText="search">
                      <styleClass>
                         <String fx:value="flat" />
                         <String fx:value="back-white" />
@@ -612,7 +612,7 @@
                         </VBox>
                         <VBox alignment="TOP_CENTER" HBox.hgrow="ALWAYS">
                            <children>
-                              <Button mnemonicParsing="false" text="Delete">
+                              <Button mnemonicParsing="false" onAction="#deleteTeacher" text="Delete">
                                  <VBox.margin>
                                     <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                                  </VBox.margin>
