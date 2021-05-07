@@ -19,8 +19,7 @@ public class ValidationController {
     }
 
     public boolean validateNIC(TextField txt) {
-        if (txt.getText().matches("^(\\d{9}|\\d{12})[VvXx]$")|| (txt.getText().isEmpty())) {
-
+        if (txt.getText().matches("^(\\d{9}|\\d{12})[VvXx]$") || (txt.getText().isEmpty())) {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);

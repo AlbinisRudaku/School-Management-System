@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import java.net.URL?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import com.jfoenix.controls.*?>
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.SchoolInfoController">
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.SchoolInfoController">
     <children>
         <Label layoutX="40.0" layoutY="91.0" prefHeight="23.0" prefWidth="138.0" text="Name :" />
         <TextField fx:id="SchoolNameField" layoutX="178.0" layoutY="90.0" prefHeight="25.0" prefWidth="242.0" promptText="Name of School" />
@@ -21,10 +17,8 @@
         <TextField fx:id="SchoolAddressField" layoutX="178.0" layoutY="134.0" prefHeight="25.0" prefWidth="242.0" promptText="Address" />
         <Label layoutX="40.0" layoutY="180.0" prefHeight="23.0" prefWidth="138.0" text="Departaments Available :" />
         <TextField fx:id="classAvailableField" layoutX="178.0" layoutY="179.0" prefHeight="25.0" prefWidth="242.0" promptText="Classes Available" />
-        <Label layoutX="40.0" layoutY="223.0" prefHeight="23.0" prefWidth="138.0" text="*******" />
-        <TextField fx:id="deoDivisionField" layoutX="178.0" layoutY="222.0" prefHeight="25.0" prefWidth="242.0" promptText="*****" />
-        <Label layoutX="40.0" layoutY="269.0" prefHeight="23.0" prefWidth="138.0" text="Postal Code :" />
-        <TextField fx:id="postalCodeField" layoutX="178.0" layoutY="268.0" prefHeight="25.0" prefWidth="242.0" promptText="Postal Code" />
+        <Label layoutX="40.0" layoutY="229.0" prefHeight="23.0" prefWidth="138.0" text="Postal Code :" />
+        <TextField fx:id="postalCodeField" layoutX="178.0" layoutY="228.0" prefHeight="25.0" prefWidth="242.0" promptText="Postal Code" />
         <JFXButton fx:id="updateDetails" layoutX="527.0" layoutY="170.0" onAction="#updateDetails" style="-fx-background-color: #c62828;" text="UPDATE" textFill="WHITE">
             <font>
                 <Font size="20.0" />
@@ -48,16 +42,16 @@
             <DropShadow />
          </effect>
         </Pane>
-      <Label layoutX="40.0" layoutY="315.0" prefHeight="23.0" prefWidth="138.0" text="Date of Establishment :" />
-      <TextField fx:id="dateOfEstdField" layoutX="178.0" layoutY="314.0" prefHeight="25.0" prefWidth="242.0" promptText="Date of Establishment" />
-      <Label layoutX="41.0" layoutY="361.0" prefHeight="23.0" prefWidth="138.0" text="Total Land Area :" />
-      <TextField fx:id="totalLandAreaField" layoutX="179.0" layoutY="360.0" prefHeight="25.0" prefWidth="242.0" promptText="Total Land Area " />
-      <Label layoutX="41.0" layoutY="405.0" prefHeight="23.0" prefWidth="138.0" text="Province : " />
-      <TextField fx:id="provinceField" layoutX="179.0" layoutY="404.0" prefHeight="25.0" prefWidth="242.0" promptText="Province : " />
-      <Label layoutX="40.0" layoutY="446.0" prefHeight="23.0" prefWidth="138.0" text="Name of Rector: " />
-      <TextField fx:id="nameOfPrincipalField" layoutX="178.0" layoutY="445.0" prefHeight="25.0" prefWidth="242.0" promptText="Name of Rector : " />
-      <Label layoutX="40.0" layoutY="486.0" prefHeight="23.0" prefWidth="138.0" text="Rector's Contact No :" />
-      <TextField fx:id="pricipalNoField" layoutX="178.0" layoutY="485.0" prefHeight="25.0" prefWidth="242.0" promptText="Rector's Contact No :" />
+      <Label layoutX="40.0" layoutY="275.0" prefHeight="23.0" prefWidth="138.0" text="Date of Establishment :" />
+      <TextField fx:id="dateOfEstdField" layoutX="178.0" layoutY="274.0" prefHeight="25.0" prefWidth="242.0" promptText="Date of Establishment" />
+      <Label layoutX="41.0" layoutY="321.0" prefHeight="23.0" prefWidth="138.0" text="Total Land Area :" />
+      <TextField fx:id="totalLandAreaField" layoutX="179.0" layoutY="320.0" prefHeight="25.0" prefWidth="242.0" promptText="Total Land Area " />
+      <Label layoutX="41.0" layoutY="365.0" prefHeight="23.0" prefWidth="138.0" text="Province : " />
+      <TextField fx:id="provinceField" layoutX="179.0" layoutY="364.0" prefHeight="25.0" prefWidth="242.0" promptText="Province : " />
+      <Label layoutX="40.0" layoutY="406.0" prefHeight="23.0" prefWidth="138.0" text="Name of Rector: " />
+      <TextField fx:id="nameOfPrincipalField" layoutX="178.0" layoutY="405.0" prefHeight="25.0" prefWidth="242.0" promptText="Name of Rector : " />
+      <Label layoutX="40.0" layoutY="446.0" prefHeight="23.0" prefWidth="138.0" text="Rector's Contact No :" />
+      <TextField fx:id="pricipalNoField" layoutX="178.0" layoutY="445.0" prefHeight="25.0" prefWidth="242.0" promptText="Rector's Contact No :" />
       <JFXButton fx:id="printDetails" layoutX="673.0" layoutY="170.0" onAction="#printDetails" prefWidth="101.0" style="-fx-background-color: #c62828;" text="PRINT" textFill="WHITE">
          <font>
             <Font size="20.0" />

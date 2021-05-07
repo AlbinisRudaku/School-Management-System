@@ -39,20 +39,8 @@ public class SchoolInfoController implements Initializable {
                 SchoolNameField.setText(s.getSchoolName());
                 SchoolAddressField.setText(s.getSchoolAddress());
                 classAvailableField.setText(s.getClassAvailable());
-                schoolTypeField.setText(s.getSchoolType());
-                deoDivisionField.setText(s.getDeoDivision());
-                municpalCouncilField.setText(s.getMunicpalCouncil());
-                policeAreaField.setText(s.getPoliceArea());
                 postalCodeField.setText(s.getPostalCode());
-                gsDivisionField.setText(s.getDeoDivision());
-                eduZoneField.setText(s.getEduZone());
-                eduDistrictField.setText(s.getEduDistrict());
-                adminDistrictField.setText(s.getAdminDistrict());
-                electorateField.setText(s.getElectorate());
                 dateOfEstdField.setText(s.getDateOfEstd());
-                schoolIDField.setText(s.getSchoolID());
-                schoolCensusField.setText(s.getSchoolCensus());
-                schoolExamIdField.setText(s.getSchoolExamId());
                 totalLandAreaField.setText(s.getTotalLandArea());
                 provinceField.setText(s.getProvince());
                 nameOfPrincipalField.setText(s.getNameOfPrincipal());
@@ -63,7 +51,7 @@ public class SchoolInfoController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("School Information");
                 alert.setHeaderText(null);
-                alert.setContentText("No Information Found..!");
+                alert.setContentText("No Information Found!");
                 alert.showAndWait();
             }
         } catch (ClassNotFoundException | SQLException ex) {
@@ -85,22 +73,7 @@ public class SchoolInfoController implements Initializable {
     private TextField classAvailableField;
 
     @FXML
-    private TextField schoolTypeField;
-
-    @FXML
-    private TextField deoDivisionField;
-
-    @FXML
-    private TextField municpalCouncilField;
-
-    @FXML
-    private TextField policeAreaField;
-
-    @FXML
     private TextField postalCodeField;
-
-    @FXML
-    private TextField gsDivisionField;
 
     @FXML
     private JFXButton updateDetails;
@@ -109,28 +82,7 @@ public class SchoolInfoController implements Initializable {
     private JFXButton addDetails;
 
     @FXML
-    private TextField eduZoneField;
-
-    @FXML
-    private TextField eduDistrictField;
-
-    @FXML
-    private TextField adminDistrictField;
-
-    @FXML
-    private TextField electorateField;
-
-    @FXML
     private TextField dateOfEstdField;
-
-    @FXML
-    private TextField schoolIDField;
-
-    @FXML
-    private TextField schoolCensusField;
-
-    @FXML
-    private TextField schoolExamIdField;
 
     @FXML
     private TextField totalLandAreaField;
@@ -171,29 +123,17 @@ public class SchoolInfoController implements Initializable {
             if (v.numbersOnly(classAvailableField)&&(v.numbersOnly(postalCodeField))&&(v.validatePhone(pricipalNoField))) {
 
                 String SchoolName = SchoolNameField.getText();
-                String SchoolAddress = SchoolNameField.getText();
+                String SchoolAddress = SchoolAddressField.getText();
                 String classAvailable = classAvailableField.getText();
-                String schoolType = schoolTypeField.getText();
-                String deoDivision = deoDivisionField.getText();
-                String municpalCouncil = municpalCouncilField.getText();
-                String policeArea = policeAreaField.getText();
                 String postalCode = postalCodeField.getText();
-                String gsDivision = gsDivisionField.getText();
-                String eduZone = eduZoneField.getText();
-                String eduDistrict = eduDistrictField.getText();
-                String adminDistrict = adminDistrictField.getText();
-                String electorate = electorateField.getText();
                 String dateOfEstd = dateOfEstdField.getText();
-                String schoolID = schoolIDField.getText();
-                String schoolCensus = schoolCensusField.getText();
-                String schoolExamId = schoolExamIdField.getText();
                 String totalLandArea = totalLandAreaField.getText();
                 String province = provinceField.getText();
                 String nameOfPrincipal = nameOfPrincipalField.getText();
                 String pricipalNo = pricipalNoField.getText();
 
+                School sch = new School(SchoolName, SchoolAddress, classAvailable, postalCode, dateOfEstd, totalLandArea, province, nameOfPrincipal, pricipalNo);
 
-                School sch = new School(SchoolName, SchoolAddress, classAvailable, schoolType, deoDivision, municpalCouncil, policeArea, postalCode, gsDivision, eduZone, eduDistrict, adminDistrict, electorate, dateOfEstd, schoolID, schoolCensus, schoolExamId, totalLandArea, province, nameOfPrincipal, pricipalNo);
                 int i = SchoolController.AddDetails(sch);
 
                 if (i > 0) {
@@ -208,7 +148,7 @@ public class SchoolInfoController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("School Information");
                     alert.setHeaderText(null);
-                    alert.setContentText("OOPs there is an error in Updating Details..!");
+                    alert.setContentText("There was an error updating details!");
                     alert.showAndWait();
                 }
             }
@@ -232,11 +172,7 @@ public class SchoolInfoController implements Initializable {
             r.viewReport(jd);
 
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (JRException e) {
+        } catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
 
@@ -248,26 +184,15 @@ public class SchoolInfoController implements Initializable {
             String SchoolName = SchoolNameField.getText();
             String SchoolAddress = SchoolAddressField.getText();
             String classAvailable = classAvailableField.getText();
-            String schoolType = schoolTypeField.getText();
-            String deoDivision = deoDivisionField.getText();
-            String municpalCouncil = municpalCouncilField.getText();
-            String policeArea = policeAreaField.getText();
             String postalCode = postalCodeField.getText();
-            String gsDivision = gsDivisionField.getText();
-            String eduZone = eduZoneField.getText();
-            String eduDistrict = eduDistrictField.getText();
-            String adminDistrict = adminDistrictField.getText();
-            String electorate = electorateField.getText();
             String dateOfEstd = dateOfEstdField.getText();
-            String schoolID = schoolIDField.getText();
-            String schoolCensus = schoolCensusField.getText();
-            String schoolExamId = schoolExamIdField.getText();
             String totalLandArea = totalLandAreaField.getText();
             String province = provinceField.getText();
             String nameOfPrincipal = nameOfPrincipalField.getText();
             String pricipalNo = pricipalNoField.getText();
 
-            School sch = new School(SchoolName,SchoolAddress,classAvailable,schoolType,deoDivision,municpalCouncil,policeArea,postalCode,gsDivision,eduZone,eduDistrict,adminDistrict,electorate,dateOfEstd,schoolID,schoolCensus,schoolExamId,totalLandArea,province,nameOfPrincipal,pricipalNo);
+            School sch = new School(SchoolName,SchoolAddress,classAvailable,postalCode,dateOfEstd,totalLandArea,province,nameOfPrincipal,pricipalNo);
+
             int i = SchoolController.updateInfo(sch);
 
             if (i > 0) {
@@ -275,14 +200,14 @@ public class SchoolInfoController implements Initializable {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("School Information");
                 alert.setHeaderText(null);
-                alert.setContentText("Information Updated Successfully...!");
+                alert.setContentText("Information Updated Successfully!");
                 alert.showAndWait();
 
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("School Information");
                 alert.setHeaderText(null);
-                alert.setContentText("OOPs there is an error Updating Details");
+                alert.setContentText("There was an error updating details!");
                 alert.showAndWait();
             }
 
