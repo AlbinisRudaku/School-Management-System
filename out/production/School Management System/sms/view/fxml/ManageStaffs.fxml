@@ -77,7 +77,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton fx:id="printStaff" layoutX="450.0" layoutY="113.0" onAction="#printStaff" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="PRINT" textFill="WHITE">
+      <JFXButton fx:id="printStaff" layoutX="450.0" layoutY="113.0" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="PRINT" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>
