@@ -1,4 +1,7 @@
 package sms.main;
+/**
+ * @Author Albinis Rudaku & Yllka Nuredini
+ */
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
