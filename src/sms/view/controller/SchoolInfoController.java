@@ -124,19 +124,24 @@ public class SchoolInfoController implements Initializable {
      */
     @FXML
     void printDetails(ActionEvent event) {
-        try {
-            Connection conn = DBConnection.getDBConnection().getConnection();
-            InputStream report = getClass().getResourceAsStream("/sms/Reports/SchoolInfo.jrxml");
-            JasperDesign jd = JRXmlLoader.load(report);
-            JRDesignQuery query = new JRDesignQuery();
-            query.setText("select * from schoolinfo");
-            jd.setQuery(query);
-            ReportViewController r = new ReportViewController();
-            r.viewReport(jd);
-        }
-        catch (ClassNotFoundException | SQLException | JRException e) {
-            e.printStackTrace();
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("School Management System");
+        alert.setHeaderText(null);
+        alert.setContentText("This feature will be implemented in the future!");
+        alert.showAndWait();
+//        try {
+//            Connection conn = DBConnection.getDBConnection().getConnection();
+//            InputStream report = getClass().getResourceAsStream("/sms/Reports/SchoolInfo.jrxml");
+//            JasperDesign jd = JRXmlLoader.load(report);
+//            JRDesignQuery query = new JRDesignQuery();
+//            query.setText("select * from schoolinfo");
+//            jd.setQuery(query);
+//            ReportViewController r = new ReportViewController();
+//            r.viewReport(jd);
+//        }
+//        catch (ClassNotFoundException | SQLException | JRException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

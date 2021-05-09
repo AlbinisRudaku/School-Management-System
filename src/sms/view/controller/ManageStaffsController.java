@@ -293,5 +293,13 @@ public class ManageStaffsController implements Initializable {
         }
     }
 
+    @FXML
+    void printStaff(ActionEvent event) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("School Management System");
+        alert.setHeaderText(null);
+        alert.setContentText("This feature will be implemented in the future!");
+        alert.showAndWait();
+    }
 }
 
