@@ -8,9 +8,9 @@ public class ValidationController {
     public static boolean validateEmpty(TextField txt) {
         if (txt.getText().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registration");
+            alert.setTitle("School Management System");
             alert.setHeaderText(null);
-            alert.setContentText("Please Fill Required Fields..!");
+            alert.setContentText("Please fill the required fields!");
             alert.showAndWait();
 
             return false;
@@ -19,13 +19,13 @@ public class ValidationController {
     }
 
     public boolean validateNIC(TextField txt) {
-        if (txt.getText().matches("^(\\d{9}|\\d{12})[VvXx]$") || (txt.getText().isEmpty())) {
+        if (txt.getText().matches("^(\\d{10}|\\d{12})") || (txt.getText().isEmpty())) {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registration");
+            alert.setTitle("School Management System");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid NIC Number..!");
+            alert.setContentText("Invalid Personal Number!");
             alert.showAndWait();
 
             return false;
@@ -34,13 +34,12 @@ public class ValidationController {
 
     public boolean numbersOnly(TextField txt) {
         if (txt.getText().matches("[0-9]+")) {
-
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registration");
+            alert.setTitle("School Management System");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid Input Type..!");
+            alert.setContentText("Invalid input type!");
             alert.showAndWait();
 
             return false;
@@ -48,14 +47,13 @@ public class ValidationController {
     }
 
     public boolean validatePhone(TextField txt) {
-        if (txt.getText().matches("^(\\d{10})")) {
-
+        if (txt.getText().matches("^(\\d{9})")) {
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registration");
+            alert.setTitle("School Management System");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid Phone Number..!");
+            alert.setContentText("Invalid phone number!");
             alert.showAndWait();
 
             return false;
@@ -64,13 +62,12 @@ public class ValidationController {
 
     public boolean validateDate(TextField txt) {
         if (txt.getText().matches("\\d{4}-\\d{2}-\\d{2}")) {
-
             return true;
         } else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Student Registration");
+            alert.setTitle("School Management System");
             alert.setHeaderText(null);
-            alert.setContentText("Invalid Date..!");
+            alert.setContentText("Invalid date!");
             alert.showAndWait();
 
             return false;

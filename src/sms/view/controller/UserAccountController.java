@@ -37,7 +37,8 @@ public class UserAccountController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
             userAccount.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -47,7 +48,8 @@ public class UserAccountController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/ManageUsers.fxml")));
             userAccount.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -57,7 +59,8 @@ public class UserAccountController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/login.fxml")));
             userAccount.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }

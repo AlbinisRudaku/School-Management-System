@@ -9,6 +9,13 @@ import java.sql.SQLException;
 
 public class LoginController {
 
+    /**
+     * Login method lets you access the application by inserting credentials
+     * @param username
+     * @param password
+     * @throws SQLException
+     * @throws ClassNotFoundException
+     */
     public static boolean Login(String username, String password) throws SQLException, ClassNotFoundException {
 
         String SQL = "SELECT * FROM users WHERE username=? AND password=?";
@@ -20,17 +27,14 @@ public class LoginController {
         ResultSet rst = stm.executeQuery();
 
         if (rst.next()) {
-
-
-        if(!rst.getString(1).equals(username)){
-            return false;
+            if(!rst.getString(1).equals(username)) {
+                return false;
+            }
+            String pwd = rst.getString(2);
+            if (pwd.equals(password)) {
+                return true;
+            }
         }
-        String pwd = rst.getString(2);
-        if (pwd.equals(password)) {
-            return true;
-        }
-    }
         return false;
-
-}
+    }
 }

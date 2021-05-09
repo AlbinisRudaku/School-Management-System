@@ -73,12 +73,6 @@ public class ManageStudentsController implements Initializable {
     private TextField addressField;
 
     @FXML
-    private TextField AdNo1;
-
-    @FXML
-    private JFXButton searchPastStudent;
-
-    @FXML
     private JFXButton btnDelete;
 
     @FXML
@@ -98,27 +92,36 @@ public class ManageStudentsController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StudentManagement.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
-    //Delete Method
+    /**
+     * Delete Students
+     * @param event
+     */
     @FXML
     void btnDelete(ActionEvent event) {
         try {
             String adNo = adNoField.getText();
-            Student s = new Student(Integer.parseInt(adNoField.getText()), fullNameField.getText(), dobField.getText(), doaField.getText(),
-                    genderField.getText(), gradeField.getText(), parentNameField.getText(), nicField.getText(), phoneField.getText(), addressField.getText());
-
-            if(AdNo1.getText().isEmpty()) {
-
-                int moveStudent = StudentController.moveStudent(s);
-                if (moveStudent > 0) {
-
+            Student s = new Student(
+                                    Integer.parseInt(adNoField.getText()),
+                                    fullNameField.getText(),
+                                    dobField.getText(),
+                                    doaField.getText(),
+                                    genderField.getText(),
+                                    gradeField.getText(),
+                                    parentNameField.getText(),
+                                    nicField.getText(),
+                                    phoneField.getText(),
+                                    addressField.getText()
+            );
+            if(adNo.isEmpty()) {
                     int deleteStudent = StudentController.deleteStudent(adNo);
-                    if (deleteStudent > 0) {
 
+                    if (deleteStudent > 0) {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Delete Student");
                         alert.setHeaderText(null);
@@ -138,8 +141,6 @@ public class ManageStudentsController implements Initializable {
                         phoneField.setText(null);
                         fullNameField.setText(null);
                         addressField.setText(null);
-
-
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Delete Student");
@@ -147,22 +148,25 @@ public class ManageStudentsController implements Initializable {
                         alert.setContentText("There was an error deleting the student!");
                         alert.showAndWait();
                     }
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Delete Student");
-                    alert.setHeaderText(null);
-                    alert.setContentText("There was an error deleting the student!");
-                    alert.showAndWait();
-                }
             }
-            } catch(ClassNotFoundException | SQLException ex){
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Delete Student");
+                alert.setHeaderText(null);
+                alert.setContentText("There was an error deleting the student!");
+                alert.showAndWait();
+            }
+            } catch(ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
+    /**
+     * Print Students
+     * @param event
+     */
     @FXML
     void btnPrint(ActionEvent event) {
-
         String adNo = adNoField.getText();
 
         try {
@@ -176,23 +180,23 @@ public class ManageStudentsController implements Initializable {
             jd.setQuery(query);
             ReportViewController r = new ReportViewController();
             r.viewReport(jd);
-
-
-        } catch (ClassNotFoundException | SQLException | JRException e) {
+        }
+        catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
-
     }
 
-    //Update Method
+    /**
+     * Update Students
+     * @param event
+     * @throws SQLException
+     */
     @FXML
     void btnUpdate(ActionEvent event) throws SQLException {
         try {
-
             ValidationController v = new ValidationController();
 
             if (v.validateNIC(nicField) && v.numbersOnly(adNoField) && v.validatePhone(phoneField)) {
-
                 int adNo = Integer.parseInt(adNoField.getText());
                 String fullName = fullNameField.getText();
                 String dob = dobField.getText();
@@ -208,7 +212,6 @@ public class ManageStudentsController implements Initializable {
                 int i = StudentController.updateStudent(s);
 
                 if (i > 0) {
-
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Student Management");
                     alert.setHeaderText(null);
@@ -228,7 +231,6 @@ public class ManageStudentsController implements Initializable {
                     phoneField.setText(null);
                     fullNameField.setText(null);
                     addressField.setText(null);
-
                 }
                 else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -238,18 +240,22 @@ public class ManageStudentsController implements Initializable {
                     alert.showAndWait();
                 }
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-
-    //Search Method
+    /**
+     * Search Students
+     * @param event
+     */
     @FXML
     void searchStudent(ActionEvent event) {
         try {
             int adNo = Integer.parseInt(AdNo.getText());
             Student s = StudentController.searchStudent(adNo);
+
             if (s != null) {
                 adNoField.setText(String.valueOf(s.getAdNo()));
                 fullNameField.setText(s.getFullName());
@@ -261,13 +267,11 @@ public class ManageStudentsController implements Initializable {
                 nicField.setText(s.getNic());
                 phoneField.setText(s.getPhone());
                 addressField.setText(s.getAddress());
-
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Student Search");
                 alert.setHeaderText(null);
-                alert.setContentText("Student Not Found");
+                alert.setContentText("Student Not Found!");
                 alert.showAndWait();
 
                 AdNo.setText(null);
@@ -284,7 +288,8 @@ public class ManageStudentsController implements Initializable {
                 fullNameField.setText(null);
                 addressField.setText(null);
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

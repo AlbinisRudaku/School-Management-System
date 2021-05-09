@@ -21,8 +21,8 @@
         <TextField fx:id="teacherNameField" layoutX="166.0" layoutY="238.0" prefHeight="25.0" prefWidth="242.0" promptText="Teacher's Name *" />
         <Label layoutX="28.0" layoutY="284.0" prefHeight="23.0" prefWidth="138.0" text="Date of Birth :" />
         <TextField fx:id="dobField" layoutX="166.0" layoutY="283.0" prefHeight="25.0" prefWidth="242.0" promptText="YYYY-MM-DD *" />
-        <Label layoutX="28.0" layoutY="327.0" prefHeight="23.0" prefWidth="138.0" text="Date of 1st Appoinment : " />
-        <TextField fx:id="doaField" layoutX="166.0" layoutY="326.0" prefHeight="25.0" prefWidth="242.0" promptText="YYYY-MM-DD *" />
+        <Label layoutX="28.0" layoutY="327.0" prefHeight="23.0" prefWidth="138.0" text="Assumption of Duties :" />
+        <TextField fx:id="asmOfDutyField" layoutX="166.0" layoutY="326.0" prefHeight="25.0" prefWidth="242.0" promptText="YYYY-MM-DD *" />
         <Label layoutX="28.0" layoutY="372.0" prefHeight="23.0" prefWidth="138.0" text="Gender : " />
         <Label layoutX="28.0" layoutY="415.0" prefHeight="23.0" prefWidth="138.0" text="Contact Number :" />
         <TextField fx:id="phoneField" layoutX="166.0" layoutY="414.0" prefHeight="25.0" prefWidth="242.0" promptText="Contact Number *" />
@@ -77,7 +77,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXButton>
-      <JFXButton fx:id="printStaff" layoutX="450.0" layoutY="113.0" onAction="#printStaff" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="PRINT" textFill="WHITE">
+      <JFXButton fx:id="printStaff" layoutX="450.0" layoutY="113.0" prefWidth="140.0" style="-fx-background-color: #B32C2C;" text="PRINT" textFill="WHITE">
          <font>
             <Font size="25.0" />
          </font>

@@ -32,19 +32,20 @@ public class LoginFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
     LoginController log = new LoginController();
 
+    /**
+     * Login method lets you login to the application
+     */
     @FXML
     public void Login() {
 
         String username = usernameField.getText();
         String password = pwdField.getText();
 
-        if(username.isEmpty() || password.isEmpty()){
-
+        if(username.isEmpty() || password.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Login");
             alert.setHeaderText(null);
@@ -52,15 +53,11 @@ public class LoginFormController implements Initializable {
             alert.showAndWait();
         }
         else {
-
-            if(username.startsWith("admin")){
-
+            if(username.startsWith("admin")) {
                 try {
-                    if (log.Login(username, password)){
-
+                    if (log.Login(username, password)) {
                         AnchorPane user = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
                         login.getChildren().setAll(user);
-
                     } else {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Login");
@@ -68,20 +65,17 @@ public class LoginFormController implements Initializable {
                         alert.setContentText("Invalid username or password!");
                         alert.showAndWait();
                     }
-
-                    } catch(SQLException | ClassNotFoundException | IOException e){
-                        e.printStackTrace();
-                    }
+                }
+                catch(SQLException | ClassNotFoundException | IOException e) {
+                    e.printStackTrace();
+                }
 
             }
             else if((username.startsWith("teacher"))) {
-
                 try {
-                    if (log.Login(username, password)){
-
+                    if (log.Login(username, password)) {
                         AnchorPane user = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
                         login.getChildren().setAll(user);
-
                     } else {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Login");
@@ -90,12 +84,13 @@ public class LoginFormController implements Initializable {
                         alert.showAndWait();
                     }
 
-                } catch(SQLException | ClassNotFoundException | IOException e){
+                }
+                catch(SQLException | ClassNotFoundException | IOException e) {
                     e.printStackTrace();
                 }
             }
             else if((username.startsWith("albinisi"))) {
-                try{
+                try {
                     if (log.Login(username, password)) {
                         AnchorPane user = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
                         login.getChildren().setAll(user);
@@ -131,18 +126,12 @@ public class LoginFormController implements Initializable {
                 }
             }
             else {
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Login");
                 alert.setHeaderText(null);
                 alert.setContentText("Invalid username or password!");
                 alert.showAndWait();
-
             }
-
-            }
-
+        }
     }
-
 }
-

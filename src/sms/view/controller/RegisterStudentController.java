@@ -74,8 +74,7 @@ public class RegisterStudentController implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources){
-
+    public void initialize(URL location, ResourceBundle resources) {
         loadComboBox();
     }
 
@@ -84,21 +83,22 @@ public class RegisterStudentController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StudentManagement.fxml")));
             root.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
+    /**
+     * Add Students
+     * @param event
+     */
     @FXML
     private void AddStudent(ActionEvent event) {
         try {
-
             ValidationController v = new ValidationController();
 
-            if (v.validateEmpty(adNoField) && v.validateEmpty(dobField) && v.validateEmpty(doaField) &&
-                    v.validateEmpty(parentNameField) && v.validateEmpty(phoneField) && v.validateNIC(nicField) && v.numbersOnly(adNoField)
-                    && v.validatePhone(phoneField) && v.validateDate(doaField) && v.validateDate(dobField)) {
-
+            if (v.validateEmpty(adNoField) && v.validateEmpty(dobField) && v.validateEmpty(doaField) && v.validateEmpty(parentNameField) && v.validateEmpty(phoneField) && v.validateNIC(nicField) && v.numbersOnly(adNoField) && v.validatePhone(phoneField) && v.validateDate(doaField) && v.validateDate(dobField)) {
                 int adNo = Integer.parseInt(adNoField.getText());
                 String fullName = fullNameField.getText();
                 String dob = dobField.getText();
@@ -112,7 +112,6 @@ public class RegisterStudentController implements Initializable {
                 String address = addressField.getText();
 
                 Student s = new Student(adNo, fullName , dob, doa, gender, grade, parentName, nic, phone, address);
-
                 int i = StudentController.AddStudent(s);
 
                 if (i > 0) {
@@ -142,16 +141,17 @@ public class RegisterStudentController implements Initializable {
                     alert.showAndWait();
                 }
             }
-
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
+    /**
+     * Reset Values
+     */
     @FXML
     private void reset() {
-
         adNoField.setText(null);
         fullNameField.setText(null);
         dobField.setText(null);
@@ -165,12 +165,16 @@ public class RegisterStudentController implements Initializable {
         addressField.setText(null);
     }
 
+    /**
+     * Combo Box
+     */
     @FXML
     private void loadComboBox(){
         ArrayList arrayList = null;
         try {
             arrayList = GradeController.getGrades();
-        } catch (ClassNotFoundException | SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         ObservableList observableArray = FXCollections.observableArrayList();
@@ -179,9 +183,7 @@ public class RegisterStudentController implements Initializable {
         if (observableArray != null){
             loadCombo.setItems(observableArray);
         }
-
     }
-
 }
 
 

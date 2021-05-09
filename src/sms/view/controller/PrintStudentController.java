@@ -121,7 +121,8 @@ public class PrintStudentController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StudentManagement.fxml")));
             root.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -133,17 +134,24 @@ public class PrintStudentController implements Initializable {
         loadGender.getItems().addAll("All", "M", "F");
     }
 
+    /**
+     * Load Genders
+     */
     @FXML
     void loadGender() {
-
     }
 
+    /**
+     * Load Grades
+     */
     @FXML
     void loadGrades() {
         ArrayList arrayList = null;
+
         try {
             arrayList = GradeController.getGrades();
-        } catch (ClassNotFoundException | SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         ObservableList observableArray = FXCollections.observableArrayList();
@@ -154,15 +162,12 @@ public class PrintStudentController implements Initializable {
         }
     }
 
-
+    /**
+     * Load Grades (Years)
+     */
     @FXML
     void loadYears() {
         ArrayList arrayList = null;
-        try {
-            arrayList = GradeController.getYears();
-        } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
         ObservableList observableArray = FXCollections.observableArrayList();
         observableArray.addAll(arrayList);
 
@@ -171,9 +176,12 @@ public class PrintStudentController implements Initializable {
         }
     }
 
+    /**
+     * Generate Students
+     * @param event
+     */
     @FXML
     void generate(ActionEvent event) {
-
         try {
             studentTable.getItems().clear();
             String grade = loadGrades.getValue();
@@ -183,15 +191,22 @@ public class PrintStudentController implements Initializable {
             Connection conn = DBConnection.getDBConnection().getConnection();
 
             if (gender == "All") {
-
                 String sql = "select * from students where grade = '" + grade + "'";
                 ResultSet rs = conn.createStatement().executeQuery(sql);
 
                 while (rs.next()) {
-                    StudentTableModel s = new StudentTableModel(rs.getInt("adNo"), rs.getString("fullName"),
-                            rs.getString("dob"), rs.getString("doa"), rs.getString("gender"), rs.getString("grade"), rs.getString("parentName"),
-                            rs.getString("nic"), rs.getString("phone"), rs.getString("address"));
-
+                    StudentTableModel s = new StudentTableModel(
+                            rs.getInt("adNo"),
+                            rs.getString("fullName"),
+                            rs.getString("dob"),
+                            rs.getString("doa"),
+                            rs.getString("gender"),
+                            rs.getString("grade"),
+                            rs.getString("parentName"),
+                            rs.getString("nic"),
+                            rs.getString("phone"),
+                            rs.getString("address")
+                    );
                     studentList.add(s);
                 }
             } else {
@@ -199,10 +214,18 @@ public class PrintStudentController implements Initializable {
                 ResultSet rs = conn.createStatement().executeQuery(sql2);
 
                 while (rs.next()) {
-                    StudentTableModel s = new StudentTableModel(rs.getInt("adNo"), rs.getString("fullName"),
-                            rs.getString("dob"), rs.getString("doa"), rs.getString("gender"), rs.getString("grade"), rs.getString("parentName"),
-                            rs.getString("nic"), rs.getString("phone"), rs.getString("address"));
-
+                    StudentTableModel s = new StudentTableModel(
+                            rs.getInt("adNo"),
+                            rs.getString("fullName"),
+                            rs.getString("dob"),
+                            rs.getString("doa"),
+                            rs.getString("gender"),
+                            rs.getString("grade"),
+                            rs.getString("parentName"),
+                            rs.getString("nic"),
+                            rs.getString("phone"),
+                            rs.getString("address")
+                    );
                     studentList.add(s);
                 }
             }
@@ -220,15 +243,19 @@ public class PrintStudentController implements Initializable {
 
             studentTable.setItems(studentList);
 
-        } catch (ClassNotFoundException | SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
 
     }
 
+    /**
+     * Print Students
+     * @param event
+     */
     @FXML
     void printStudents(ActionEvent event) {
-
         try {
             studentTable.getItems().clear();
             String grade = loadGrades.getValue();
@@ -238,14 +265,7 @@ public class PrintStudentController implements Initializable {
             Connection conn = DBConnection.getDBConnection().getConnection();
             InputStream report1 = getClass().getResourceAsStream("/sms/Reports/StudentList.jrxml");
             InputStream report2 = getClass().getResourceAsStream("/sms/Reports/StudentListGender.jrxml");
-//            InputStream report3 = getClass().getResourceAsStream("/sms/Reports/PastStudentList.jrxml");
-//            InputStream report4 = getClass().getResourceAsStream("/sms/Reports/PastStudentListGender.jrxml");
 
-           /* JasperDesign jd = JRXmlLoader.load("src\\sms\\Reports\\StudentList.jrxml");
-            JasperDesign jd2 = JRXmlLoader.load("src\\sms\\Reports\\StudentListGender.jrxml");
-            JasperDesign jd3 = JRXmlLoader.load("src\\sms\\Reports\\PastStudentList.jrxml");
-            JasperDesign jd4 = JRXmlLoader.load("src\\sms\\Reports\\PastStudentListGender.jrxml");
-            */
             JRDesignQuery query = new JRDesignQuery();
 
             if(loadYears.getValue()==null) {
@@ -253,13 +273,11 @@ public class PrintStudentController implements Initializable {
                 if (loadGrades != null) {
 
                     if (gender == "All") {
-
                         JasperDesign jd = JRXmlLoader.load(report1);
                         query.setText("select * from students where grade = '" + grade + "'");
                         jd.setQuery(query);
                         ReportViewController r = new ReportViewController();
                         r.viewReport(jd);
-
                     } else {
                         JasperDesign jd2 = JRXmlLoader.load(report2);
                         query.setText("select * from students where grade = '" + grade + "' AND gender = '" + gender + "'");
@@ -269,10 +287,10 @@ public class PrintStudentController implements Initializable {
                     }
                 }
             }
-        }catch (ClassNotFoundException | SQLException | JRException e) {
+        }
+        catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
-
     }
 }
 

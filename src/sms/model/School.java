@@ -1,6 +1,7 @@
 package sms.model;
 
 public class School {
+
     private String schoolName;
     private String schoolAddress;
     private String classAvailable;
@@ -11,8 +12,7 @@ public class School {
     private String nameOfPrincipal;
     private String pricipalNo;
 
-    public School(){
-
+    public School() {
     }
 
     public School(String schoolName, String schoolAddress, String classAvailable, String postalCode, String dateOfEstd, String totalLandArea, String province, String nameOfPrincipal, String pricipalNo) {

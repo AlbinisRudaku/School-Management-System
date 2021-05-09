@@ -40,13 +40,7 @@ public class RegisterStaffController implements Initializable {
     private TextField teacherNameField;
 
     @FXML
-    private TextField nicField;
-
-    @FXML
     private TextField dobField;
-
-    @FXML
-    private TextField doaField;
 
     @FXML
     private JFXRadioButton genderField;
@@ -73,9 +67,6 @@ public class RegisterStaffController implements Initializable {
     private JFXButton reset;
 
     @FXML
-    private TextField incDateField;
-
-    @FXML
     private TextField prsntGradeField;
 
     @FXML
@@ -86,92 +77,79 @@ public class RegisterStaffController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StaffManagement.fxml")));
             root.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
+    /**
+     * Add Teachers
+     * @param event
+     */
     @FXML
     void AddStaff(ActionEvent event) {
-
         try {
-
             ValidationController v = new ValidationController();
 
-            if(v.validateEmpty(empNoField)&& v.validateEmpty(teacherNameField)&& v.validateEmpty(nicField)&& v.validateEmpty(dobField)
-                    && v.validateEmpty(doaField)&& v.validateEmpty(phoneField)&& v.validateDate(dobField)&& v.validateDate(doaField)&& v.validateDate(asmOfDutyField)
-                    && v.validateDate(incDateField)&& v.validateNIC(nicField)&& v.validatePhone(phoneField)&& v.numbersOnly(empNoField)&& v.numbersOnly(phoneField)){
-
+            if(v.validateEmpty(empNoField) && v.validateEmpty(teacherNameField) && v.validateEmpty(dobField) && v.validateEmpty(phoneField) && v.validateDate(dobField) && v.validateDate(asmOfDutyField) && v.validatePhone(phoneField) && v.numbersOnly(empNoField) && v.numbersOnly(phoneField)) {
                 int empNo = Integer.parseInt(empNoField.getText());
+
                 String teacherName = teacherNameField.getText();
-                String nic = nicField.getText();
                 String dob = dobField.getText();
-                String doa = doaField.getText();
                 RadioButton selectedRadioButton = (RadioButton) g.getSelectedToggle();
                 String gender = selectedRadioButton.getText();
                 String email = emailField.getText();
                 String assumpOfDuties = asmOfDutyField.getText();
                 String phone = phoneField.getText();
                 String address = addressField.getText();
-                String incDate = incDateField.getText();
                 String prsntGrade = prsntGradeField.getText();
 
-                Staff s = new Staff(empNo, teacherName, nic, dob, doa, gender, email, assumpOfDuties, phone, address, incDate, prsntGrade);
+                Staff s = new Staff(empNo, teacherName, dob, gender, email, assumpOfDuties, phone, address, prsntGrade);
                 int i = StaffController.AddStaff(s);
-
 
                 if (i > 0) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Staff Registration");
+                    alert.setTitle("Teacher Registration");
                     alert.setHeaderText(null);
-                    alert.setContentText("Staff Registered Successfully..!");
+                    alert.setContentText("Teacher registered successfully!");
                     alert.showAndWait();
 
                     empNoField.setText(null);
                     teacherNameField.setText(null);
-                    nicField.setText(null);
                     dobField.setText(null);
-                    doaField.setText(null);
                     emailField.setText(null);
                     asmOfDutyField.setText(null);
-                    nicField.setText(null);
                     phoneField.setText(null);
                     addressField.setText(null);
-                    incDateField.setText(null);
                     prsntGradeField.setText(null);
-
                 } else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Staff Registration");
+                    alert.setTitle("Teacher Registration");
                     alert.setHeaderText(null);
-                    alert.setContentText("OOPS there is an error adding Staff..!");
+                    alert.setContentText("There was an error adding the teacher!");
                     alert.showAndWait();
                 }
             }
-
-    } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+        catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
     }
 
+    /**
+     * Reset values
+     * @param event
+     */
     @FXML
     void reset(ActionEvent event) {
-
         empNoField.setText(null);
         teacherNameField.setText(null);
-        nicField.setText(null);
         dobField.setText(null);
-        doaField.setText(null);
         emailField.setText(null);
         asmOfDutyField.setText(null);
-        nicField.setText(null);
         addressField.setText(null);
         phoneField.setText(null);
-        incDateField.setText(null);
         prsntGradeField.setText(null);
-
     }
 }

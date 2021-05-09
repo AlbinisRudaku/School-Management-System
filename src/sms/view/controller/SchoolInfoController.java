@@ -31,6 +31,11 @@ import sms.dbController.StudentController;
 
 public class SchoolInfoController implements Initializable {
 
+    /**
+     * Initialize Resources
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         try {
@@ -45,20 +50,18 @@ public class SchoolInfoController implements Initializable {
                 provinceField.setText(s.getProvince());
                 nameOfPrincipalField.setText(s.getNameOfPrincipal());
                 pricipalNoField.setText(s.getPricipalNo());
-
-
-            }else{
+            } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("School Information");
                 alert.setHeaderText(null);
                 alert.setContentText("No Information Found!");
                 alert.showAndWait();
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(SchoolController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
 
     @FXML
     private AnchorPane root;
@@ -108,59 +111,19 @@ public class SchoolInfoController implements Initializable {
         try {
             AnchorPane user = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
             root.getChildren().setAll(user);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
 
     }
 
-    @FXML
-    void addDetails(ActionEvent event) {            //This Method Button Removed Due to Unwanted
-        try {
-
-            ValidationController v = new ValidationController();
-
-            if (v.numbersOnly(classAvailableField)&&(v.numbersOnly(postalCodeField))&&(v.validatePhone(pricipalNoField))) {
-
-                String SchoolName = SchoolNameField.getText();
-                String SchoolAddress = SchoolAddressField.getText();
-                String classAvailable = classAvailableField.getText();
-                String postalCode = postalCodeField.getText();
-                String dateOfEstd = dateOfEstdField.getText();
-                String totalLandArea = totalLandAreaField.getText();
-                String province = provinceField.getText();
-                String nameOfPrincipal = nameOfPrincipalField.getText();
-                String pricipalNo = pricipalNoField.getText();
-
-                School sch = new School(SchoolName, SchoolAddress, classAvailable, postalCode, dateOfEstd, totalLandArea, province, nameOfPrincipal, pricipalNo);
-
-                int i = SchoolController.AddDetails(sch);
-
-                if (i > 0) {
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("School Information");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Updated Successfully");
-                    alert.showAndWait();
-
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("School Information");
-                    alert.setHeaderText(null);
-                    alert.setContentText("There was an error updating details!");
-                    alert.showAndWait();
-                }
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-    }
-
+    /**
+     * Print School Details
+     * @param event
+     */
     @FXML
     void printDetails(ActionEvent event) {
-
         try {
             Connection conn = DBConnection.getDBConnection().getConnection();
             InputStream report = getClass().getResourceAsStream("/sms/Reports/SchoolInfo.jrxml");
@@ -170,14 +133,16 @@ public class SchoolInfoController implements Initializable {
             jd.setQuery(query);
             ReportViewController r = new ReportViewController();
             r.viewReport(jd);
-
-
-        } catch (ClassNotFoundException | SQLException | JRException e) {
+        }
+        catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
-
     }
 
+    /**
+     * Update School Details
+     * @param event
+     */
     @FXML
     void updateDetails(ActionEvent event) {
         try {
@@ -192,17 +157,14 @@ public class SchoolInfoController implements Initializable {
             String pricipalNo = pricipalNoField.getText();
 
             School sch = new School(SchoolName,SchoolAddress,classAvailable,postalCode,dateOfEstd,totalLandArea,province,nameOfPrincipal,pricipalNo);
-
             int i = SchoolController.updateInfo(sch);
 
             if (i > 0) {
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("School Information");
                 alert.setHeaderText(null);
                 alert.setContentText("Information Updated Successfully!");
                 alert.showAndWait();
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("School Information");
@@ -210,10 +172,9 @@ public class SchoolInfoController implements Initializable {
                 alert.setContentText("There was an error updating details!");
                 alert.showAndWait();
             }
-
-        }catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
            Logger.getLogger(SchoolController.class.getName()).log(Level.SEVERE, null, ex);
-    }
-
+        }
     }
 }
