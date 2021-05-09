@@ -48,7 +48,8 @@ public class StudentManagementController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/MainDashboard.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -58,7 +59,8 @@ public class StudentManagementController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/RegisterStudent.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -68,7 +70,8 @@ public class StudentManagementController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/ManageStudents.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
@@ -78,18 +81,9 @@ public class StudentManagementController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/PrintStudents.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
-    @FXML
-    void transfer(ActionEvent event) {
-        try {
-            AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/TransferStudents.fxml")));
-            manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
-            System.out.println(e);
-        }
-    }
-
 }

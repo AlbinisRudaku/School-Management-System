@@ -4,7 +4,6 @@ public class StudentTableModel {
 
      int adNo;
      String fullName;
-     String name;
      String dob;
      String doa;
      String gender;
@@ -14,10 +13,9 @@ public class StudentTableModel {
      String phone;
      String address;
 
-    public StudentTableModel(int adNo, String fullName, String name, String dob, String doa, String gender, String grade, String parentName, String nic, String phone, String address) {
+    public StudentTableModel(int adNo, String fullName, String dob, String doa, String gender, String grade, String parentName, String nic, String phone, String address) {
         this.adNo = adNo;
         this.fullName = fullName;
-        this.name = name;
         this.dob = dob;
         this.doa = doa;
         this.gender = gender;
@@ -39,18 +37,12 @@ public class StudentTableModel {
         this.adNo = adNo;
     }
 
-    public String getFullName() { return fullName; }
+    public String getFullName() {
+        return fullName;
+    }
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDob() {

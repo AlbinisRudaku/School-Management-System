@@ -49,9 +49,6 @@ public class ManageStudentsController implements Initializable {
     private TextField fullNameField;
 
     @FXML
-    private TextField nameField;
-
-    @FXML
     private TextField dobField;
 
     @FXML
@@ -76,12 +73,6 @@ public class ManageStudentsController implements Initializable {
     private TextField addressField;
 
     @FXML
-    private TextField AdNo1;
-
-    @FXML
-    private JFXButton searchPastStudent;
-
-    @FXML
     private JFXButton btnDelete;
 
     @FXML
@@ -101,36 +92,45 @@ public class ManageStudentsController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StudentManagement.fxml")));
             manageStudents.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
-    //Delete Method
+
+    /**
+     * Delete Students
+     * @param event
+     */
     @FXML
     void btnDelete(ActionEvent event) {
         try {
             String adNo = adNoField.getText();
-            Student s = new Student(Integer.parseInt(adNoField.getText()), fullNameField.getText(), nameField.getText(), dobField.getText(), doaField.getText(),
-                    genderField.getText(), gradeField.getText(), parentNameField.getText(), nicField.getText(), phoneField.getText(), addressField.getText());
-
-            if(AdNo1.getText().isEmpty()) {
-
-                int moveStudent = StudentController.moveStudent(s);
-                if (moveStudent > 0) {
-
+            Student s = new Student(
+                                    Integer.parseInt(adNoField.getText()),
+                                    fullNameField.getText(),
+                                    dobField.getText(),
+                                    doaField.getText(),
+                                    genderField.getText(),
+                                    gradeField.getText(),
+                                    parentNameField.getText(),
+                                    nicField.getText(),
+                                    phoneField.getText(),
+                                    addressField.getText()
+            );
+            if(adNo.isEmpty()) {
                     int deleteStudent = StudentController.deleteStudent(adNo);
-                    if (deleteStudent > 0) {
 
+                    if (deleteStudent > 0) {
                         Alert alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Delete Student");
                         alert.setHeaderText(null);
-                        alert.setContentText("Student " + adNo + " has been deleted sucessfully..!");
+                        alert.setContentText("Student " + adNo + " has been deleted successfully!");
                         alert.showAndWait();
 
                         AdNo.setText(null);
                         adNoField.setText(null);
                         fullNameField.setText(null);
-                        nameField.setText(null);
                         dobField.setText(null);
                         doaField.setText(null);
                         gradeField.setText(null);
@@ -141,67 +141,32 @@ public class ManageStudentsController implements Initializable {
                         phoneField.setText(null);
                         fullNameField.setText(null);
                         addressField.setText(null);
-
-
                     } else {
                         Alert alert = new Alert(Alert.AlertType.ERROR);
                         alert.setTitle("Delete Student");
                         alert.setHeaderText(null);
-                        alert.setContentText("There is an error deleting Student");
+                        alert.setContentText("There was an error deleting the student!");
                         alert.showAndWait();
                     }
-                }else{
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Delete Student");
-                    alert.setHeaderText(null);
-                    alert.setContentText("There is an error deleting Student");
-                    alert.showAndWait();
-                }
             }
-            else{
-
-                int forceDelete = StudentController.deleteLeftStudent(adNo);
-                if (forceDelete > 0) {
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Delete Student");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Student " + adNo + " has been deleted sucessfully..!");
-                    alert.showAndWait();
-
-                    AdNo.setText(null);
-                    AdNo1.setText(null);
-                    adNoField.setText(null);
-                    fullNameField.setText(null);
-                    nameField.setText(null);
-                    dobField.setText(null);
-                    doaField.setText(null);
-                    gradeField.setText(null);
-                    genderField.setText(null);
-                    adNoField.setText(null);
-                    parentNameField.setText(null);
-                    nicField.setText(null);
-                    phoneField.setText(null);
-                    fullNameField.setText(null);
-                    addressField.setText(null);
-
-
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setTitle("Delete Student");
-                    alert.setHeaderText(null);
-                    alert.setContentText("There is an error deleting Student");
-                    alert.showAndWait();
-                }
+            else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Delete Student");
+                alert.setHeaderText(null);
+                alert.setContentText("There was an error deleting the student!");
+                alert.showAndWait();
             }
-            } catch(ClassNotFoundException | SQLException ex){
+            } catch(ClassNotFoundException | SQLException ex) {
                 Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
             }
     }
 
+    /**
+     * Print Students
+     * @param event
+     */
     @FXML
     void btnPrint(ActionEvent event) {
-
         String adNo = adNoField.getText();
 
         try {
@@ -215,30 +180,25 @@ public class ManageStudentsController implements Initializable {
             jd.setQuery(query);
             ReportViewController r = new ReportViewController();
             r.viewReport(jd);
-
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (JRException e) {
+        }
+        catch (ClassNotFoundException | SQLException | JRException e) {
             e.printStackTrace();
         }
-
     }
 
-    //Update Method
+    /**
+     * Update Students
+     * @param event
+     * @throws SQLException
+     */
     @FXML
     void btnUpdate(ActionEvent event) throws SQLException {
         try {
-
             ValidationController v = new ValidationController();
 
             if (v.validateNIC(nicField) && v.numbersOnly(adNoField) && v.validatePhone(phoneField)) {
-
                 int adNo = Integer.parseInt(adNoField.getText());
                 String fullName = fullNameField.getText();
-                String name = nameField.getText();
                 String dob = dobField.getText();
                 String doa = doaField.getText();
                 String gender = genderField.getText();
@@ -248,45 +208,19 @@ public class ManageStudentsController implements Initializable {
                 String phone = phoneField.getText();
                 String address = addressField.getText();
 
-                Student s = new Student(adNo, fullName, name, dob, doa, gender, grade, parentName, nic, phone, address);
-                int d = StudentController.updateLeftStudent(s);
+                Student s = new Student(adNo, fullName, dob, doa, gender, grade, parentName, nic, phone, address);
                 int i = StudentController.updateStudent(s);
 
-                if (d > 0){
+                if (i > 0) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Student Management");
                     alert.setHeaderText(null);
-                    alert.setContentText("Student " + adNo + " Updated Successfully..!");
-                    alert.showAndWait();
-
-                    AdNo1.setText(null);
-                    adNoField.setText(null);
-                    fullNameField.setText(null);
-                    nameField.setText(null);
-                    dobField.setText(null);
-                    doaField.setText(null);
-                    gradeField.setText(null);
-                    genderField.setText(null);
-                    adNoField.setText(null);
-                    parentNameField.setText(null);
-                    nicField.setText(null);
-                    phoneField.setText(null);
-                    fullNameField.setText(null);
-                    addressField.setText(null);
-                }
-
-                else if (i > 0) {
-
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Student Management");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Student " + adNo + " Updated Successfully..!");
+                    alert.setContentText("Student " + adNo + " Updated Successfully!");
                     alert.showAndWait();
 
                     AdNo.setText(null);
                     adNoField.setText(null);
                     fullNameField.setText(null);
-                    nameField.setText(null);
                     dobField.setText(null);
                     doaField.setText(null);
                     gradeField.setText(null);
@@ -297,31 +231,34 @@ public class ManageStudentsController implements Initializable {
                     phoneField.setText(null);
                     fullNameField.setText(null);
                     addressField.setText(null);
-
-                } else {
+                }
+                else {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Student Management");
                     alert.setHeaderText(null);
-                    alert.setContentText("OOPs there is an error updating Student..!");
+                    alert.setContentText("There was an error updating the student!");
                     alert.showAndWait();
                 }
             }
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-
-    //Search Method
+    /**
+     * Search Students
+     * @param event
+     */
     @FXML
     void searchStudent(ActionEvent event) {
         try {
             int adNo = Integer.parseInt(AdNo.getText());
             Student s = StudentController.searchStudent(adNo);
+
             if (s != null) {
                 adNoField.setText(String.valueOf(s.getAdNo()));
                 fullNameField.setText(s.getFullName());
-                nameField.setText(s.getName());
                 dobField.setText(s.getDob());
                 doaField.setText(s.getDoa());
                 genderField.setText(s.getGender());
@@ -330,19 +267,16 @@ public class ManageStudentsController implements Initializable {
                 nicField.setText(s.getNic());
                 phoneField.setText(s.getPhone());
                 addressField.setText(s.getAddress());
-
-
             } else {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Student Search");
                 alert.setHeaderText(null);
-                alert.setContentText("Student Not Found");
+                alert.setContentText("Student Not Found!");
                 alert.showAndWait();
 
                 AdNo.setText(null);
                 adNoField.setText(null);
                 fullNameField.setText(null);
-                nameField.setText(null);
                 dobField.setText(null);
                 doaField.setText(null);
                 gradeField.setText(null);
@@ -354,53 +288,8 @@ public class ManageStudentsController implements Initializable {
                 fullNameField.setText(null);
                 addressField.setText(null);
             }
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-
-    @FXML
-    void searchPastStudent(ActionEvent event) {
-        try {
-            int adNo = Integer.parseInt(AdNo1.getText());
-            Student s = StudentController.searchPastStudent(adNo);
-            if (s != null) {
-                adNoField.setText(String.valueOf(s.getAdNo()));
-                fullNameField.setText(s.getFullName());
-                nameField.setText(s.getName());
-                dobField.setText(s.getDob());
-                doaField.setText(s.getDoa());
-                genderField.setText(s.getGender());
-                gradeField.setText(s.getGrade());
-                parentNameField.setText(s.getParentName());
-                nicField.setText(s.getNic());
-                phoneField.setText(s.getPhone());
-                addressField.setText(s.getAddress());
-
-
-            } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Student Search");
-                alert.setHeaderText(null);
-                alert.setContentText("Student Not Found");
-                alert.showAndWait();
-
-                AdNo.setText(null);
-                adNoField.setText(null);
-                fullNameField.setText(null);
-                nameField.setText(null);
-                dobField.setText(null);
-                doaField.setText(null);
-                gradeField.setText(null);
-                genderField.setText(null);
-                adNoField.setText(null);
-                parentNameField.setText(null);
-                nicField.setText(null);
-                phoneField.setText(null);
-                fullNameField.setText(null);
-                addressField.setText(null);
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

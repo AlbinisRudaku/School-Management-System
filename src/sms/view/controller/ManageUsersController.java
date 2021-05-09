@@ -74,15 +74,18 @@ public class ManageUsersController implements Initializable {
         try {
             AnchorPane user = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/UserAccount.fxml")));
             root.getChildren().setAll(user);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
+    /**
+     * Load users table
+     */
     @FXML
     void loadTable(){
         //Wrote this Method as Sepereate Because can use this for Table Refresh as well.
-
         UsernameColumn.setCellValueFactory(new PropertyValueFactory<UserTableModel, String>("username"));
         passwordColumn.setCellValueFactory(new PropertyValueFactory<UserTableModel, String>("password"));
 
@@ -98,18 +101,19 @@ public class ManageUsersController implements Initializable {
                 data.add(ctm);
             }
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Add users
+     */
     @FXML
     void addUser() {
-
         try {
             if(ValidationController.validateEmpty(userNameField) && ValidationController.validateEmpty(passwordField)) {
-
                 String username = userNameField.getText();
                 String password = passwordField.getText();
 
@@ -120,7 +124,7 @@ public class ManageUsersController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("User Management");
                     alert.setHeaderText(null);
-                    alert.setContentText("User Registered Successfully..!");
+                    alert.setContentText("User Registered Successfully!");
                     alert.showAndWait();
 
                     userNameField.setText(null);
@@ -128,29 +132,28 @@ public class ManageUsersController implements Initializable {
                 }
                 data.clear();               //Refresh Table
                 loadTable();                //Refresh Table
-
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
 
+    /**
+     * Delete Users
+     * @param event
+     */
     @FXML
     void deleteUser(ActionEvent event) {
         String username = userNameField.getText();
-
         try {
             int deleteUser = UserController.deleteUser(username);
 
-            if(deleteUser > 0){
-
+            if(deleteUser > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("User Management");
                 alert.setHeaderText(null);
-                alert.setContentText("User Deleted Sucessfully..!");
+                alert.setContentText("User Deleted Sucessfully!");
                 alert.showAndWait();
 
                 userNameField.setText(null);
@@ -158,9 +161,7 @@ public class ManageUsersController implements Initializable {
 
                 data.clear();               //Refresh Table
                 loadTable();                //Refresh Table
-
             } else {
-
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("User Management");
                 alert.setHeaderText(null);
@@ -170,63 +171,60 @@ public class ManageUsersController implements Initializable {
                 userNameField.setText(null);
                 passwordField.setText(null);
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Search Users
+     * @param event
+     */
     @FXML
     void searchUser(ActionEvent event) {
-
         String username = userNameField.getText();
 
         try {
             User search = UserController.searchUser(username);
 
             if(search != null){
-
                 userNameField.setText(search.getUsername());
                 passwordField.setText(search.getPassword());
-
             }else {
-
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("User Management");
                 alert.setHeaderText(null);
-                alert.setContentText("User Not Found");
+                alert.setContentText("User Not Found!");
                 alert.showAndWait();
 
                 userNameField.setText(null);
                 passwordField.setText(null);
-
             }
-
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Update Users
+     * @param event
+     */
     @FXML
     void updateUser(ActionEvent event) {
-
         String username = userNameField.getText();
         String password = passwordField.getText();
 
         try {
-
             User user = new User(username,password);
             int update = UserController.updateUser(user);
 
-            if(update > 0){
-
+            if(update > 0) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("User Management");
                 alert.setHeaderText(null);
-                alert.setContentText("User Updated Successfully..!");
+                alert.setContentText("User Updated Successfully!");
                 alert.showAndWait();
 
                 userNameField.setText(null);
@@ -235,12 +233,9 @@ public class ManageUsersController implements Initializable {
                 data.clear();
                 loadTable();
             }
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
-
 }

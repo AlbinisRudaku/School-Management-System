@@ -39,9 +39,6 @@ public class RegisterStudentController implements Initializable {
     private TextField fullNameField;
 
     @FXML
-    private TextField nameField;
-
-    @FXML
     private TextField dobField;
 
     @FXML
@@ -77,8 +74,7 @@ public class RegisterStudentController implements Initializable {
 
 
     @Override
-    public void initialize(URL location, ResourceBundle resources){
-
+    public void initialize(URL location, ResourceBundle resources) {
         loadComboBox();
     }
 
@@ -87,27 +83,24 @@ public class RegisterStudentController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StudentManagement.fxml")));
             root.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
+    /**
+     * Add Students
+     * @param event
+     */
     @FXML
     private void AddStudent(ActionEvent event) {
         try {
-
             ValidationController v = new ValidationController();
 
-           // if(ValidationController.validateEmpty(adNoField)) //This can be used for Static Methods
-
-            if (v.validateEmpty(adNoField) && v.validateEmpty(nameField) && v.validateEmpty(dobField) && v.validateEmpty(doaField) &&
-                    v.validateEmpty(parentNameField) && v.validateEmpty(phoneField) && v.validateNIC(nicField) && v.numbersOnly(adNoField)
-                    && v.validatePhone(phoneField) && v.validateDate(doaField) && v.validateDate(dobField)) {
-
-
+            if (v.validateEmpty(adNoField) && v.validateEmpty(dobField) && v.validateEmpty(doaField) && v.validateEmpty(parentNameField) && v.validateEmpty(phoneField) && v.validateNIC(nicField) && v.numbersOnly(adNoField) && v.validatePhone(phoneField) && v.validateDate(doaField) && v.validateDate(dobField)) {
                 int adNo = Integer.parseInt(adNoField.getText());
                 String fullName = fullNameField.getText();
-                String name = nameField.getText();
                 String dob = dobField.getText();
                 String doa = doaField.getText();
                 RadioButton selectedRadioButton = (RadioButton) g.getSelectedToggle(); //Getting Selected Radio Button
@@ -118,19 +111,18 @@ public class RegisterStudentController implements Initializable {
                 String phone = phoneField.getText();
                 String address = addressField.getText();
 
-                Student s = new Student(adNo, fullName, name, dob, doa, gender, grade, parentName, nic, phone, address);
+                Student s = new Student(adNo, fullName , dob, doa, gender, grade, parentName, nic, phone, address);
                 int i = StudentController.AddStudent(s);
 
                 if (i > 0) {
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Student Registration");
                     alert.setHeaderText(null);
-                    alert.setContentText("Student ID " + adNo + " Registered Successfully..!");
+                    alert.setContentText("Student ID " + adNo + " Registered Successfully!");
                     alert.showAndWait();
 
                     adNoField.setText(null);
                     fullNameField.setText(null);
-                    nameField.setText(null);
                     dobField.setText(null);
                     doaField.setText(null);
                     loadCombo.setValue(null);
@@ -145,23 +137,23 @@ public class RegisterStudentController implements Initializable {
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setTitle("Student Registration");
                     alert.setHeaderText(null);
-                    alert.setContentText("OOPs there is an error adding Student");
+                    alert.setContentText("There was an error adding the student");
                     alert.showAndWait();
                 }
             }
-
-        } catch (ClassNotFoundException | SQLException ex) {
+        }
+        catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(StudentController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }
 
+    /**
+     * Reset Values
+     */
     @FXML
     private void reset() {
-
         adNoField.setText(null);
         fullNameField.setText(null);
-        nameField.setText(null);
         dobField.setText(null);
         doaField.setText(null);
         loadCombo.setValue(null);
@@ -173,12 +165,16 @@ public class RegisterStudentController implements Initializable {
         addressField.setText(null);
     }
 
+    /**
+     * Combo Box
+     */
     @FXML
     private void loadComboBox(){
         ArrayList arrayList = null;
         try {
             arrayList = GradeController.getGrades();
-        } catch (ClassNotFoundException | SQLException e) {
+        }
+        catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         ObservableList observableArray = FXCollections.observableArrayList();
@@ -187,9 +183,7 @@ public class RegisterStudentController implements Initializable {
         if (observableArray != null){
             loadCombo.setItems(observableArray);
         }
-
     }
-
 }
 
 

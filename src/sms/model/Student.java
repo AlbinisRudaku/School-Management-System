@@ -4,7 +4,6 @@ public class Student {
 
     private int adNo;
     private String fullName;
-    private String name;
     private String dob;
     private String doa;
     private String gender;
@@ -15,10 +14,9 @@ public class Student {
     private String address;
 
 
-    public Student(int adNo, String fullName, String name, String dob, String doa, String gender, String grade, String parentName, String nic, String phone, String address) {
+    public Student(int adNo, String fullName, String dob, String doa, String gender, String grade, String parentName, String nic, String phone, String address) {
         this.adNo = adNo;
         this.fullName = fullName;
-        this.name = name;
         this.dob = dob;
         this.doa = doa;
         this.gender = gender;
@@ -45,14 +43,6 @@ public class Student {
 
     public void setFullName(String fullName) {
         this.fullName = fullName;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDob() {

@@ -4,29 +4,23 @@ public class Staff {
 
     private int empNo;
     private String teacherName;
-    private String nic;
     private String dob;
-    private String doa;
     private String gender;
     private String email;
     private String assumpOfDuties;
     private String phone;
     private String address;
-    private String incDate;
     private String prsntGrade;
 
-    public Staff(int empNo, String teacherName, String nic, String dob, String doa, String gender, String email, String assumpOfDuties, String phone, String address, String incDate, String prsntGrade) {
+    public Staff(int empNo, String teacherName, String dob, String gender, String email, String assumpOfDuties, String phone, String address, String prsntGrade) {
         this.empNo = empNo;
         this.teacherName = teacherName;
-        this.nic = nic;
         this.dob = dob;
-        this.doa = doa;
         this.gender = gender;
         this.email = email;
         this.assumpOfDuties = assumpOfDuties;
         this.phone = phone;
         this.address = address;
-        this.incDate = incDate;
         this.prsntGrade = prsntGrade;
     }
 
@@ -46,28 +40,12 @@ public class Staff {
         this.teacherName = teacherName;
     }
 
-    public String getNic() {
-        return nic;
-    }
-
-    public void setNic(String nic) {
-        this.nic = nic;
-    }
-
     public String getDob() {
         return dob;
     }
 
     public void setDob(String dob) {
         this.dob = dob;
-    }
-
-    public String getDoa() {
-        return doa;
-    }
-
-    public void setDoa(String doa) {
-        this.doa = doa;
     }
 
     public String getGender() {
@@ -108,14 +86,6 @@ public class Staff {
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getIncDate() {
-        return incDate;
-    }
-
-    public void setIncDate(String incDate) {
-        this.incDate = incDate;
     }
 
     public String getPrsntGrade() {

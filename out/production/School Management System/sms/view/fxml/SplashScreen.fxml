@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="rootPane" prefHeight="320.0" prefWidth="520.0" style="-fx-background-color: #B32C2C;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sms.view.controller.SplashScreenController">
+   <children>
+      <Text fill="WHITE" layoutY="253.0" strokeType="OUTSIDE" strokeWidth="0.0" text="School Management System" textAlignment="CENTER" wrappingWidth="520.0">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="196.0" fitWidth="203.0" layoutX="162.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../other/img/up-logo.png" />
+         </image>
+      </ImageView>
+      <Text fill="#c9abab" layoutX="123.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autorë - Yllka Nuredini &amp; Albinis Rudaku" textAlignment="CENTER" wrappingWidth="274.0" />
+      <Text fill="#c9abab" layoutX="123.0" layoutY="296.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Copyright © Universiteti &quot;Hasan Prishtina&quot;" textAlignment="CENTER" wrappingWidth="274.0" />
+      <Text fill="#c9abab" layoutX="123.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prishtinë" textAlignment="CENTER" wrappingWidth="274.0" />
+   </children>
+</AnchorPane>

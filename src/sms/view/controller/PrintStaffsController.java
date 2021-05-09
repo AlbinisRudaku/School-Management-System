@@ -37,7 +37,7 @@ public class PrintStaffsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Type.getItems().addAll("Current Staffs", "Old Staffs");
+        Type.getItems().addAll("Current Teachers");
     }
     @FXML
     private AnchorPane root;
@@ -64,13 +64,7 @@ public class PrintStaffsController implements Initializable {
     private TableColumn<StaffTableModel, String> NameColumn;
 
     @FXML
-    private TableColumn<StaffTableModel, String> nicColumn;
-
-    @FXML
     private TableColumn<StaffTableModel, String> dobColumn;
-
-    @FXML
-    private TableColumn<StaffTableModel, String> doaColumn;
 
     @FXML
     private TableColumn<StaffTableModel, String> genderColumn;
@@ -88,9 +82,6 @@ public class PrintStaffsController implements Initializable {
     private TableColumn<StaffTableModel, String> addressColumn;
 
     @FXML
-    private TableColumn<StaffTableModel, String> incDateColumn;
-
-    @FXML
     private TableColumn<StaffTableModel, String> gradeColumn;
 
     ObservableList<StaffTableModel> staffList = FXCollections.observableArrayList();
@@ -100,126 +91,91 @@ public class PrintStaffsController implements Initializable {
         try {
             AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/StaffManagement.fxml")));
             root.getChildren().setAll(studentMgmt);
-        }catch(IOException e){
+        }
+        catch(IOException e) {
             System.out.println(e);
         }
     }
 
     @FXML
     void Type(ActionEvent event) {
-
     }
-    //Below code for On key press methods..
 
-    /*@FXML
-    void gen(KeyEvent event){
-        generate.setOnKeyTyped((e)->{
-            if (e.getCode() == KeyCode.G){
-                generate();
-            }
-        });
-    }*/
-
+    /**
+     * Generate print list
+     */
     @FXML
     void generate() {
-
-        try{
+        try {
             staffTable.getItems().clear();
             String type = Type.getValue();
 
             Connection conn = DBConnection.getDBConnection().getConnection();
 
-            if (type == "Current Staffs") {
+            if (type == "Current Teachers") {
 
                 String sql = "select * from staffs";
                 ResultSet rs = conn.createStatement().executeQuery(sql);
 
                 while (rs.next()) {
-
-                    StaffTableModel staff = new StaffTableModel(rs.getInt("empNo"),rs.getString("teacherName"),rs.getString("nic"),
-                            rs.getString("dob"),rs.getString("doa"),rs.getString("gender"),rs.getString("email"),rs.getString("assumpOfDuties"),
-                            rs.getString("phone"),rs.getString("address"),rs.getString("incDate"),rs.getString("prsntGrade"));
+                    StaffTableModel staff = new StaffTableModel(
+                            rs.getInt("empNo"),
+                            rs.getString("teacherName"),
+                            rs.getString("dob"),
+                            rs.getString("gender"),
+                            rs.getString("email"),
+                            rs.getString("assumpOfDuties"),
+                            rs.getString("phone"),
+                            rs.getString("address"),
+                            rs.getString("prsntGrade")
+                    );
                     staffList.add(staff);
                 }
             }
-            else {
 
-                String sql2 = "select * from oldstaffs";
-                ResultSet rs = conn.createStatement().executeQuery(sql2);
-
-                while (rs.next()) {
-
-                    StaffTableModel staff = new StaffTableModel(rs.getInt("empNo"),rs.getString("teacherName"),rs.getString("nic"),
-                            rs.getString("dob"),rs.getString("doa"),rs.getString("gender"),rs.getString("email"),rs.getString("assumpOfDuties"),
-                            rs.getString("phone"),rs.getString("address"),rs.getString("incDate"),rs.getString("prsntGrade"));
-                    staffList.add(staff);
-                }
-            }
-            //Ctrl+D for copy above line
             EmpNoColumn.setCellValueFactory(new PropertyValueFactory<>("empNo"));
             NameColumn.setCellValueFactory(new PropertyValueFactory<>("teacherName"));
-            nicColumn.setCellValueFactory(new PropertyValueFactory<>("nic"));
             dobColumn.setCellValueFactory(new PropertyValueFactory<>("dob"));
-            doaColumn.setCellValueFactory(new PropertyValueFactory<>("doa"));
             emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
             genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
             assmpDutyColumn.setCellValueFactory(new PropertyValueFactory<>("assumpOfDuties"));
             phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
             addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
-            incDateColumn.setCellValueFactory(new PropertyValueFactory<>("incDate"));
             gradeColumn.setCellValueFactory(new PropertyValueFactory<>("prsntGrade"));
 
             staffTable.setItems(staffList);
 
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+    /**
+     * Print list
+     * @param event
+     */
     @FXML
     void print(ActionEvent event) {
-
         staffTable.getItems().clear();
         String type = Type.getValue();
 
         try {
             Connection conn = DBConnection.getDBConnection().getConnection();
-
             InputStream report1 = getClass().getResourceAsStream("/sms/Reports/StaffList.jrxml");
             InputStream report2 = getClass().getResourceAsStream("/sms/Reports/StaffListPast.jrxml");
-
             JRDesignQuery query = new JRDesignQuery();
 
-          /*  HashMap<String,Object> Logo = new HashMap<String, Object>();
-
-            URL url = this.getClass().getClassLoader().getResource("sms/other/img/HikmaLogo.jpg");
-            Logo.put("logo", url);*/
-
-            if (type == "Current Staffs"){
-
+            if (type == "Current Teachers"){
                 JasperDesign jd = JRXmlLoader.load(report1);
                 query.setText("select * from staffs");
                 jd.setQuery(query);
                 ReportViewController r = new ReportViewController();
                 r.viewReport(jd);
             }
-            else {
-
-                JasperDesign jd2 = JRXmlLoader.load(report2);
-                query.setText("select * from oldstaffs");
-                jd2.setQuery(query);
-                ReportViewController r = new ReportViewController();
-                r.viewReport(jd2);
-            }
-        } catch (JRException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+        catch (JRException | SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
-
 }
