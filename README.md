@@ -9,7 +9,9 @@ Projekti duhet të përmbaj: emrin e përdoruesit dhe fjalkalimin. Pas kyqjes n�
 Dokumentimi: https://sms-javadocs.netlify.app/
 <br>
 Demo: https://streamable.com/9o8e87
-
+<br>
+## Diagrami
+![diagram.png](src/sms/other/img/diagram.png)
 ## Dependencies
 Për të pasur mundësi të lëshimit të aplikacionit duhet që të importohet JavaFX në aplikacionin tuaj.
 <br>
