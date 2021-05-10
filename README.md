@@ -7,9 +7,10 @@ Krijimi i një aplikacioni që është sistemi i menaxhimit të shkollës përme
 Projekti duhet të përmbaj: emrin e përdoruesit dhe fjalkalimin. Pas kyqjes në aplikacion mund të bëjmë menaxhimin e llogarive të përdoruesve, poashtu mund të bëjmë kontrollimin e studentëve (insertimi, fshirja dhe përditësimi), shkollës apo stafit të shkollës.
 
 Dokumentimi: https://sms-javadocs.netlify.app/
-Demo:
+<br>
+Demo: https://streamable.com/9o8e87
 
-## Dependencies:
+## Dependencies
 Për të pasur mundësi të lëshimit të aplikacionit duhet që të importohet JavaFX në aplikacionin tuaj.
 <br>
 #### Importimi i JavaFX:
