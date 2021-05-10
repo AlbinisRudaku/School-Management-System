@@ -167,23 +167,28 @@ public class ManageStudentsController implements Initializable {
      */
     @FXML
     void btnPrint(ActionEvent event) {
-        String adNo = adNoField.getText();
-
-        try {
-            Connection conn = DBConnection.getDBConnection().getConnection();
-            InputStream report1 = getClass().getResourceAsStream("/sms/Reports/StudentAdmission.jrxml");
-
-            JRDesignQuery query = new JRDesignQuery();
-
-            JasperDesign jd = JRXmlLoader.load(report1);
-            query.setText("select * from students where adNo = '" + adNo + "'");
-            jd.setQuery(query);
-            ReportViewController r = new ReportViewController();
-            r.viewReport(jd);
-        }
-        catch (ClassNotFoundException | SQLException | JRException e) {
-            e.printStackTrace();
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("School Management System");
+        alert.setHeaderText(null);
+        alert.setContentText("This feature will be implemented in the future!");
+        alert.showAndWait();
+//        String adNo = adNoField.getText();
+//
+//        try {
+//            Connection conn = DBConnection.getDBConnection().getConnection();
+//            InputStream report1 = getClass().getResourceAsStream("/sms/Reports/StudentAdmission.jrxml");
+//
+//            JRDesignQuery query = new JRDesignQuery();
+//
+//            JasperDesign jd = JRXmlLoader.load(report1);
+//            query.setText("select * from students where adNo = '" + adNo + "'");
+//            jd.setQuery(query);
+//            ReportViewController r = new ReportViewController();
+//            r.viewReport(jd);
+//        }
+//        catch (ClassNotFoundException | SQLException | JRException e) {
+//            e.printStackTrace();
+//        }
     }
 
     /**

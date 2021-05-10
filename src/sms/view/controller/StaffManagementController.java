@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
@@ -56,13 +57,18 @@ public class StaffManagementController implements Initializable {
 
     @FXML
     void btnPrintStaff(ActionEvent event) {
-        try {
-            AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/PrintStaffs.fxml")));
-            studentManagement.getChildren().setAll(studentMgmt);
-        }
-        catch(IOException e) {
-            System.out.println(e);
-        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("School Management System");
+        alert.setHeaderText(null);
+        alert.setContentText("This feature will be implemented in the future!");
+        alert.showAndWait();
+//        try {
+//            AnchorPane studentMgmt = FXMLLoader.load(getClass().getResource(("/sms/view/fxml/PrintStaffs.fxml")));
+//            studentManagement.getChildren().setAll(studentMgmt);
+//        }
+//        catch(IOException e) {
+//            System.out.println(e);
+//        }
     }
 
     @FXML
